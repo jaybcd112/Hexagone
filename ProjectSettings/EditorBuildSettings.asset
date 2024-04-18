@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: 115a46f45bc709445818b26825ca89d4
+  - enabled: 1
+    path: Assets/Scenes/TileSelect.unity
+    guid: 4220b5da678169e0daaf67d6fc7898d5
+  - enabled: 1
     path: Assets/Scenes/MovementTechDemo WebGL Version.unity
     guid: c5ba5aa6ddc4e4c44ac6d6a2ccfbbfd1
   m_configObjects: {}
