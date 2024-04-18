@@ -8,20 +8,24 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BlueTileShader
-  m_Shader: {fileID: 4800000, guid: 917b37092bae034459c28c00a3a19b54, type: 3}
+  m_Shader: {fileID: 4800000, guid: 346b772e64df87b4bb3c621bbfa0d958, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - GEOM_TYPE_BRANCH
   - VIGNETTE_MASKED
   - _EMISSION
   - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
-  stringTagMap: {}
+  stringTagMap:
+    AllLockedGUIDS: 9ba405318a28e0f4792c356a802d0535
+    OriginalKeywords: GEOM_TYPE_BRANCH VIGNETTE_MASKED _EMISSION _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+    OriginalShader: ".poiyomi/Poiyomi 7.3/\u2022 Poiyomi Toon \u2022"
+    RenderType: Opaque
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
@@ -980,7 +984,7 @@ Material:
     - _ScrollingEmission: 0
     - _ScrollingEmission1: 0
     - _ShadeColor_Step: 0
-    - _ShaderOptimizerEnabled: 0
+    - _ShaderOptimizerEnabled: 1
     - _ShaderUIWarning0: -0
     - _ShaderUIWarning1: -0
     - _ShadowMix: 0

@@ -8,24 +8,22 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: New Material
-  m_Shader: {fileID: 4800000, guid: 917b37092bae034459c28c00a3a19b54, type: 3}
+  m_Shader: {fileID: 4800000, guid: 84c1b3e575efad848bf194f2848c8540, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - VIGNETTE_MASKED
   - _EMISSION
   - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-  m_InvalidKeywords:
-  - POI_LIGHT_DATA_ADDITIVE_DIRECTIONAL_ENABLE
-  - POI_LIGHT_DATA_ADDITIVE_ENABLE
-  - POI_VERTEXLIGHT_ON
-  - _LIGHTINGMODE_SHADEMAP
-  - _RIMSTYLE_POIYOMI
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
+    AllLockedGUIDS: d40d13c7b0a6b0a43bd571a869407517
+    OriginalKeywords: VIGNETTE_MASKED _EMISSION _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+    OriginalShader: ".poiyomi/Poiyomi 7.3/\u2022 Poiyomi Toon \u2022"
     RenderType: Opaque
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -1727,7 +1725,9 @@ Material:
     - _ScrollingEmission3: 0
     - _Set_HighColorMaskUV: 0
     - _ShadeColor_Step: 0
-    - _ShaderOptimizerEnabled: 0
+    - _ShaderOptimizerEnabled: 1
+    - _ShaderUIWarning0: -0
+    - _ShaderUIWarning1: -0
     - _ShadingEnabled: 1
     - _ShadingShadeMapBlendType: 0
     - _Shadow2ndBlur: 0.3

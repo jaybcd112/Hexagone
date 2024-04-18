@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class FirstPersonController : MonoBehaviour
 {
+    private Vector3 initialLocation;
     public float moveSpeed = 2f;
 
     public Transform cameraDamper;
@@ -19,6 +20,7 @@ public class FirstPersonController : MonoBehaviour
 
     void Start()
     {
+        initialLocation = transform.position;
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked; // Lock cursor to center of screen
     }
@@ -66,5 +68,12 @@ public class FirstPersonController : MonoBehaviour
         // Final move vector
         Vector3 finalMove = (move * currentSpeed) + Vector3.up * verticalVelocity;
         characterController.Move(finalMove * Time.deltaTime);
+
+        //reset the ball by dropping it to initial location
+        if (Input.GetKey(KeyCode.R))
+        {
+            transform.position = initialLocation;
+        }
+
     }
 }

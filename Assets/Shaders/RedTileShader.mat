@@ -8,20 +8,21 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: RedTileShader
-  m_Shader: {fileID: 4800000, guid: 917b37092bae034459c28c00a3a19b54, type: 3}
+  m_Shader: {fileID: 4800000, guid: 0d2880aabfa989445a2b6e0174657b2b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - GEOM_TYPE_BRANCH
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - VIGNETTE_MASKED
-  - _EMISSION
-  - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
-  stringTagMap: {}
+  stringTagMap:
+    AllLockedGUIDS: 678d74b8a1ec8ba4dba3d0d4a69d5e40,04328c474b448f741aef8b63e2d22b59
+    OriginalKeywords: VIGNETTE_MASKED
+    OriginalShader: ".poiyomi/Poiyomi 7.3/\u2022 Poiyomi Toon \u2022"
+    RenderType: Opaque
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
@@ -980,7 +981,7 @@ Material:
     - _ScrollingEmission: 0
     - _ScrollingEmission1: 0
     - _ShadeColor_Step: 0
-    - _ShaderOptimizerEnabled: 0
+    - _ShaderOptimizerEnabled: 1
     - _ShaderUIWarning0: -0
     - _ShaderUIWarning1: -0
     - _ShadowMix: 0

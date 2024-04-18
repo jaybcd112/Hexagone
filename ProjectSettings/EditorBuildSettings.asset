@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MovementTechDemo WebGL Version.unity
+    guid: c5ba5aa6ddc4e4c44ac6d6a2ccfbbfd1
   m_configObjects: {}
