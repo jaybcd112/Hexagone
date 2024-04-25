@@ -69,7 +69,7 @@ public class FirstPersonController : MonoBehaviour
         Vector3 finalMove = (move * currentSpeed) + Vector3.up * verticalVelocity;
         characterController.Move(finalMove * Time.deltaTime);
 
-        //reset the ball by dropping it to initial location
+        //reset the player by dropping it to initial location
         if (Input.GetKey(KeyCode.R))
         {
             transform.position = initialLocation;
