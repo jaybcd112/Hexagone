@@ -19,26 +19,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    public void OnEnable()
-    {
-        input.Enable();
-        input.Player.Movement.performed += OnMovementPerformed;
-        input.Player.Movement.canceled += OnMovementCanceled;
-
-        input.Player.Sprint.performed += OnSprintPerformed;
-        input.Player.Sprint.canceled += OnSprintCanceled;
-
-        input.Player.Jump.performed += OnJumpPerformed;
-        input.Player.Jump.canceled += OnJumpCanceled;
-    }
-
-    public void OnDisable()
-    {
-        input.Disable();
-        input.Player.Movement.performed -= OnMovementPerformed;
-        input.Player.Movement.canceled -= OnMovementCanceled;
-    }
-
     public void OnMovementPerformed(InputAction.CallbackContext value)
     {
         moveVector = value.ReadValue<Vector2>();

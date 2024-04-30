@@ -1141,6 +1141,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3975771579979609551, guid: 502ef3db7ec5d404a94b74eebdcfc219, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 5078579415400704528, guid: 502ef3db7ec5d404a94b74eebdcfc219, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1343,6 +1347,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7618379646559024351, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
       propertyPath: m_Name
+      value: Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618379646559024351, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
+      propertyPath: m_TagString
       value: Camera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
