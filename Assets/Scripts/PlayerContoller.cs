@@ -16,11 +16,10 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        input = new PlayerControls();
         rb = GetComponent<Rigidbody>();
     }
 
-    private void OnEnable()
+    public void OnEnable()
     {
         input.Enable();
         input.Player.Movement.performed += OnMovementPerformed;
@@ -33,34 +32,34 @@ public class PlayerController : MonoBehaviour
         input.Player.Jump.canceled += OnJumpCanceled;
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         input.Disable();
         input.Player.Movement.performed -= OnMovementPerformed;
         input.Player.Movement.canceled -= OnMovementCanceled;
     }
 
-    private void OnMovementPerformed(InputAction.CallbackContext value)
+    public void OnMovementPerformed(InputAction.CallbackContext value)
     {
         moveVector = value.ReadValue<Vector2>();
     }
 
-    private void OnMovementCanceled(InputAction.CallbackContext value)
+    public void OnMovementCanceled(InputAction.CallbackContext value)
     {
         moveVector = value.ReadValue<Vector2>();
     }
 
-    private void OnSprintPerformed(InputAction.CallbackContext value)
+    public void OnSprintPerformed(InputAction.CallbackContext value)
     {
         speedMultiplier = 1.5f;
     }
 
-    private void OnSprintCanceled(InputAction.CallbackContext value)
+    public void OnSprintCanceled(InputAction.CallbackContext value)
     {
         speedMultiplier = 1f;
     }
 
-    private void OnJumpPerformed(InputAction.CallbackContext value)
+    public void OnJumpPerformed(InputAction.CallbackContext value)
     {
         if (isGrounded)
         {
@@ -68,7 +67,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnJumpCanceled(InputAction.CallbackContext value)
+    public void OnJumpCanceled(InputAction.CallbackContext value)
     {
         // add jump cancel logic here if needed
     }

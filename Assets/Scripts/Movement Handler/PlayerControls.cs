@@ -197,17 +197,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3f5e805f-8635-4941-8e9a-6b0144b1644f"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Join"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""f46c4341-f248-4e45-a67d-689be81eed63"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
@@ -237,7 +226,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""bindingGroup"": ""Controller"",
             ""devices"": [
                 {
-                    ""devicePath"": ""<XInputController>"",
+                    ""devicePath"": ""<Gamepad>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
