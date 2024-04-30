@@ -18,7 +18,6 @@ public class CameraControl : MonoBehaviour
     void Start()
     {
         cam = GetComponent<Camera>();
-        cam.transform.Rotate(50, 0, 0);
     }
 
     void LateUpdate()
