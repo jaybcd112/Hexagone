@@ -12,6 +12,8 @@ public class CameraControl : MonoBehaviour
     public float maxZoom = 10f;
     public float zoomLimiter = 50f; 
 
+    public float zoffset = -15; // added zoffset
+
     private Vector3 velocity;
     private Camera cam;
 
@@ -34,7 +36,7 @@ public class CameraControl : MonoBehaviour
         Vector3 centerPoint = GetCenterPoint();
         float heightAdjustment = CalculateHeightAdjustment();
 
-        Vector3 newPosition = centerPoint + new Vector3(0, baseHeight + heightAdjustment, -15); // zoffset of -15 added
+        Vector3 newPosition = centerPoint + new Vector3(0, baseHeight + heightAdjustment, zoffset); // zoffset of -15 added
         transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
     }
 
