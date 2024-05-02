@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.tag == "Player" && collision.gameObject != gameObject.);
+        Debug.Log(collision.gameObject.tag == "Player" && collision.gameObject != gameObject);
         if(collision.gameObject.tag == "Player" && collision.gameObject != gameObject)
             collision.rigidbody.AddExplosionForce(power, transform.position, radius, 0f);
     }
