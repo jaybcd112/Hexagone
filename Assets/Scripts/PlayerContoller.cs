@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     private float speedMultiplier = 1f;
     private Rigidbody rb;
     private bool isGrounded;
+    private Quaternion targetRotation;
+
+    public Transform playerModel;
 
     private void Awake()
     {
@@ -22,6 +25,13 @@ public class PlayerController : MonoBehaviour
     public void OnMovementPerformed(InputAction.CallbackContext value)
     {
         moveVector = value.ReadValue<Vector2>();
+    }
+
+    public void OnLookPerformed(InputAction.CallbackContext value)
+    {
+        Vector2 temp = value.ReadValue<Vector2>();
+        float angle = Mathf.Atan2(temp.y, temp.x) * Mathf.Rad2Deg;
+        targetRotation = Quaternion.Euler(0f, (-1f*angle)+cameraAngle.eulerAngles.y, 0f);
     }
 
     public void OnMovementCanceled(InputAction.CallbackContext value)
@@ -60,15 +70,17 @@ public class PlayerController : MonoBehaviour
         // Calculate camera forward and right vectors relative to player rotation
         Vector3 cameraForward = Quaternion.Euler(0, cameraAngle.eulerAngles.y, 0) * Vector3.forward;
         Vector3 cameraRight = Quaternion.Euler(0, cameraAngle.eulerAngles.y, 0) * Vector3.right;
-        
+
         Vector3 movement = moveHorizontal * cameraRight + moveVertical * cameraForward;
-        
+
         movement = movement.normalized * Time.deltaTime * speed * speedMultiplier;
-        
+
         transform.Translate(movement);
 
+        playerModel.rotation = targetRotation;
+
         // Check if the player is grounded
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, groundedRaycastDistance, groundLayer);
+        isGrounded = Physics.Raycast(playerModel.position, Vector3.down, groundedRaycastDistance, groundLayer);
 
         /*Debug.Log(moveVector);
         Debug.Log(movement);
