@@ -8,6 +8,7 @@ public class CameraControl : MonoBehaviour
     public float baseHeight = 10f; 
     public float heightMultiplier = 0.75f; 
     public float smoothTime = 0.5f; 
+    public float minY = 10f;
     public float minZoom = 40f; 
     public float maxZoom = 10f;
     public float zoomLimiter = 50f; 
