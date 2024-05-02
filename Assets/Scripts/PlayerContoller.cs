@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public float groundedRaycastDistance = 0.1f; // Distance to check for ground
     public LayerMask groundLayer; // Layer mask for the ground objects
     private float speedMultiplier = 1f;
-    private Rigidbody rb;
+    public Rigidbody rb;
     private bool isGrounded;
     private Quaternion targetRotation;
 
@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        
     }
 
     public void OnMovementPerformed(InputAction.CallbackContext value)
