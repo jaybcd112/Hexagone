@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public float radius = 5.0f;
-    public float power = 10.0f;
+    public float radius = 15.0f;
+    public float power = 5000.0f;
 
     void Start()
     {
@@ -13,8 +13,8 @@ public class Weapon : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("contact");
-        Debug.Log(collision.rigidbody);
-        collision.rigidbody.AddExplosionForce(power, transform.position, radius, 3.0f);
+        Debug.Log(collision.gameObject.tag == "Player" && collision.gameObject != gameObject.);
+        if(collision.gameObject.tag == "Player" && collision.gameObject != gameObject)
+            collision.rigidbody.AddExplosionForce(power, transform.position, radius, 0f);
     }
 }
