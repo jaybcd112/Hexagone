@@ -5,15 +5,17 @@ using UnityEngine;
 public class CameraControl : MonoBehaviour
 {
     public Transform[] targets;
-    public float baseHeight = 10f; 
-    public float heightMultiplier = 0.75f; 
+    public float baseHeight = 5f; 
+    public float heightMultiplier = 1.5f; 
     public float smoothTime = 0.5f; 
-    public float minY = 10f;
-    public float minZoom = 40f; 
-    public float maxZoom = 10f;
+    public float minY = 5f;
+    public float maxY = 40f;
     public float zoomLimiter = 50f; 
 
-    public float zoffset = -15; // added zoffset
+    public float minZOffset = -10f; 
+    public float maxZOffset = -20f;
+    public float minAngle = 30f;
+    public float maxAngle = 70f;
 
     private Vector3 velocity;
     private Camera cam;
@@ -29,28 +31,38 @@ public class CameraControl : MonoBehaviour
             return;
 
         Move();
-        Zoom();
+        RotateCamera();
     }
 
     void Move()
     {
         Vector3 centerPoint = GetCenterPoint();
         float heightAdjustment = CalculateHeightAdjustment();
+        float currentY = Mathf.Clamp(baseHeight + heightAdjustment, minY, maxY);
+        float zOffset = CalculateZOffset(currentY);
 
-        Vector3 newPosition = centerPoint + new Vector3(0, baseHeight + heightAdjustment, zoffset); // zoffset of -15 added
+        Vector3 newPosition = centerPoint + new Vector3(0, currentY, zOffset);
         transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
     }
 
-    void Zoom()
+    void RotateCamera()
     {
-        float newZoom = Mathf.Lerp(maxZoom, minZoom, MaxDistanceFromCenter() / zoomLimiter);
-        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, newZoom, Time.deltaTime);
+        float currentY = Mathf.Clamp(transform.position.y, minY, maxY);
+        float heightFactor = (currentY - minY) / (maxY - minY);
+        float angle = Mathf.Lerp(minAngle, maxAngle, heightFactor);
+        transform.rotation = Quaternion.Euler(angle, 0, 0);
     }
 
     float CalculateHeightAdjustment()
     {
         float maxDistance = MaxDistanceFromCenter();
         return maxDistance * heightMultiplier; 
+    }
+
+    float CalculateZOffset(float currentY)
+    {
+        float heightFactor = (currentY - minY) / (maxY - minY);
+        return Mathf.Lerp(minZOffset, maxZOffset, heightFactor);
     }
 
     float MaxDistanceFromCenter()
