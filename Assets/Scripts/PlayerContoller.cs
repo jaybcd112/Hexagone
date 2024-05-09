@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    private PlayerControls input = null;
     private Vector2 moveVector = Vector2.zero;
-    public Transform cameraAngle;
+    public int percentage = 0;
+    public int lives = 3;
     public float speed;
     public float jumpForce;
     public float groundedRaycastDistance = 0.1f; // Distance to check for ground
@@ -14,12 +16,20 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb;
     private bool isGrounded;
     private Quaternion targetRotation;
-
     public Transform playerModel;
+    public Transform cameraAngle;
+    public TextMeshProUGUI announcementText;
+    public TextMeshProUGUI playerIconText;
+    public Image[] healthIcons;
 
-    private void Awake()
+    public void Awake()
     {
-        
+        string playerName = gameObject.name;
+        string currentPlayer = "Player"+playerName.Substring(6);
+        GameObject playerIcon = GameObject.Find("Canvas/" + currentPlayer + "Icon");
+        playerIconText = playerIcon.transform.Find("Current %").GetComponent<TextMeshProUGUI>();
+        announcementText = GameObject.Find("Canvas/Announcement Text").GetComponent<TextMeshProUGUI>();
+        setPlayerColor(currentPlayer);
     }
 
     public void OnMovementPerformed(InputAction.CallbackContext value)
@@ -85,5 +95,62 @@ public class PlayerController : MonoBehaviour
         /*Debug.Log(moveVector);
         Debug.Log(movement);
         Debug.Log("Grounded: " + isGrounded);*/
+    }
+
+    public void updatePercentage(int newPercentage)
+    {
+        percentage += newPercentage;
+        playerIconText.text = percentage.ToString() + "%";
+    }
+
+    public void resetPercentage()
+    {
+        percentage = 0;
+        playerIconText.text = percentage.ToString() + "%";
+    }
+
+    public int getLives()
+    {
+        return lives;
+    }
+
+    public void updateLives(int newLives)
+    {
+        lives += newLives;
+
+        healthIcons[(lives+1)].enabled = false;
+
+        resetPercentage();
+
+    }
+
+    public void setPlayerColor(string currentPlayer)
+    {
+        switch (currentPlayer)
+        {
+            case "Player1":
+                this.gameObject.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Player1");
+                break;
+            case "Player2":
+                this.gameObject.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Player2");
+                break;
+            case "Player3":
+                this.gameObject.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Player3");
+                break;
+            case "Player4":
+                this.gameObject.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Player4");
+                break;
+        }
+    }
+
+    public void dead()
+    {
+        announcementText.text = this.gameObject.name + " is dead";
+        this.gameObject.SetActive(false);
+    }
+
+    public void pause()
+    {
+        GameObject.Find("Canvas/PauseMenu").SetActive(true);
     }
 }

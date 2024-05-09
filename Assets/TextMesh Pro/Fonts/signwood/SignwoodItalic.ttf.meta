@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 46aba4487ef2d0740b0b206ffa1f9be6
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Signwood
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 31a39c2521d12d94aa81e48eb80f4917, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

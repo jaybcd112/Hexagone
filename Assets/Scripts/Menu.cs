@@ -5,26 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    public string selectScreen; // change this string in the start button to the tile select screen
-    public GameObject rules;
-    public GameObject title;
-    
-    public void StartGame ()
+    public void LoadScene (string scene)
     {
-        SceneManager.LoadScene("TileSelect");
+        SceneManager.LoadScene(scene);
     }
     public void ExitGame ()
     {
         Application.Quit();
-    }
-    public void ShowMenu ()
-    {
-        rules.SetActive(true);
-        title.SetActive(false);
-    }
-    public void HideMenu ()
-    {
-        rules.SetActive(false);
-        title.SetActive(true);
     }
 }

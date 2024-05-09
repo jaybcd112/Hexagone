@@ -79,4 +79,15 @@ public class CameraControl : MonoBehaviour
         }
         return bounds.center;
     }
+
+    public void addTarget(GameObject target)
+    {
+        Transform[] newTargets = new Transform[targets.Length + 1];
+        for (int i = 0; i < targets.Length; i++)
+        {
+            newTargets[i] = targets[i];
+        }
+        newTargets[targets.Length] = target.transform;
+        targets = newTargets;
+    }
 }
