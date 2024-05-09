@@ -2566,11 +2566,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1409186112349640955, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: 0.9659258
       objectReference: {fileID: 0}
     - target: {fileID: 1409186112349640955, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.38268343
+      value: 0.2588191
       objectReference: {fileID: 0}
     - target: {fileID: 1409186112349640955, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
       propertyPath: m_LocalRotation.y
@@ -2582,7 +2582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1409186112349640955, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 45
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1409186112349640955, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -2593,16 +2593,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4609933713484605072, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
+      propertyPath: minY
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4609933713484605072, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
       propertyPath: minZoom
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4609933713484605072, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
+      propertyPath: zoffset
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4609933713484605072, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
+      propertyPath: maxAngle
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 4609933713484605072, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
       propertyPath: baseHeight
-      value: 30
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4609933713484605072, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
       propertyPath: heightMultiplier
-      value: 0.75
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4609933713484605072, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
+      propertyPath: targets.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8852258585448755988, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
       propertyPath: m_Name
