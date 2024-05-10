@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TileSelect.unity
     guid: 4220b5da678169e0daaf67d6fc7898d5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MovementTechDemo.unity
     guid: a748ede07f3bce247ac49bd48922fd18
+  - enabled: 1
+    path: Assets/Scenes/WeaponSwingTest.unity
+    guid: 3e2da19c68b7a9243b4fd609e1ad6ad6
   m_configObjects: {}

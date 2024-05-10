@@ -429,7 +429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   percentage: 0
   lives: 3
-  speed: 5
+  speed: 4.2
   jumpForce: 30
   groundedRaycastDistance: 0.5
   groundLayer:
