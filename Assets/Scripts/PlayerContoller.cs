@@ -64,6 +64,14 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); // Apply jump force only when grounded
+            RaycastHit hit;
+            if (Physics.Raycast(playerModel.position, Vector3.down, out hit, groundedRaycastDistance + 0.1f, groundLayer))
+            {
+                if (hit.collider.tag == "GlassTile")
+                {
+                    hit.collider.gameObject.GetComponent<GlassTile>()?.JumpImpact();
+                }
+            }
         }
     }
 
