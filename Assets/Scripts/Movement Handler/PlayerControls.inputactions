@@ -226,6 +226,17 @@
                 },
                 {
                     "name": "",
+                    "id": "8aa9547e-faf3-4b2b-abb4-424259725341",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Hit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "199b365c-0aee-4506-93b2-725e313d876e",
                     "path": "<Gamepad>/start",
                     "interactions": "",

@@ -21,11 +21,13 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI announcementText;
     public TextMeshProUGUI playerIconText;
     public Image[] healthIcons;
+    private Animator animator; // Reference to the Animator component
 
     public void Awake()
     {
+        animator = GetComponent<Animator>();
         string playerName = gameObject.name;
-        string currentPlayer = "Player"+playerName.Substring(6);
+        string currentPlayer = "Player" + playerName.Substring(6);
         GameObject playerIcon = GameObject.Find("Canvas/" + currentPlayer + "Icon");
         playerIconText = playerIcon.transform.Find("Current %").GetComponent<TextMeshProUGUI>();
         announcementText = GameObject.Find("Canvas/Announcement Text").GetComponent<TextMeshProUGUI>();
@@ -41,7 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 temp = value.ReadValue<Vector2>();
         float angle = Mathf.Atan2(temp.y, temp.x) * Mathf.Rad2Deg;
-        targetRotation = Quaternion.Euler(0f, (-1f*angle)+cameraAngle.eulerAngles.y, 0f);
+        targetRotation = Quaternion.Euler(0f, (-1f * angle) + cameraAngle.eulerAngles.y, 0f);
     }
 
     public void OnMovementCanceled(InputAction.CallbackContext value)
@@ -78,6 +80,22 @@ public class PlayerController : MonoBehaviour
     public void OnJumpCanceled(InputAction.CallbackContext value)
     {
         // add jump cancel logic here if needed
+    }
+
+    public void OnHitPerformed(InputAction.CallbackContext value)
+    {
+        // Check if the animator is currently playing the "SwingDown" state
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        if (!stateInfo.IsName("SwingDown"))
+        {
+            // Set the parameter to true if not in the "SwingDown" state
+            animator.SetBool("AttackPressed", true);
+        }
+        else
+        {
+            // Set the parameter to false if in the "SwingDown" state
+            animator.SetBool("AttackPressed", false);
+        }
     }
 
     private void FixedUpdate()
@@ -126,7 +144,7 @@ public class PlayerController : MonoBehaviour
     {
         lives += newLives;
 
-        healthIcons[(lives+1)].enabled = false;
+        healthIcons[(lives + 1)].enabled = false;
 
         resetPercentage();
 
