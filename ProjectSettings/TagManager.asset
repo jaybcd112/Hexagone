@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Camera
   - KillZone
+  - GlassTile
+  - DesertTile
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public float groundedRaycastDistance = 0.1f; // Distance to check for ground
     public LayerMask groundLayer; // Layer mask for the ground objects
     private float speedMultiplier = 1f;
+    private float slow = 1f;
+    public float slowMultiplier = 0.7f;
     public Rigidbody rb;
     private bool isGrounded;
     private Quaternion targetRotation;
@@ -109,11 +111,23 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movement = moveHorizontal * cameraRight + moveVertical * cameraForward;
 
-        movement = movement.normalized * Time.deltaTime * speed * speedMultiplier;
+        RaycastHit hit;
+        if (Physics.Raycast(playerModel.position, Vector3.down, out hit, groundedRaycastDistance + 0.1f, groundLayer))
+        {
+            if (hit.collider.tag == "DesertTile")
+            {
+                slow = slowMultiplier;
+            } else {
+                slow = 1f;
+            }
+        }
+
+        movement = movement.normalized * Time.deltaTime * speed * speedMultiplier * slow;
 
         transform.Translate(movement);
 
         playerModel.rotation = targetRotation;
+        
 
         // Check if the player is grounded
         isGrounded = Physics.Raycast(playerModel.position, Vector3.down, groundedRaycastDistance, groundLayer);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GlassTile : MonoBehaviour
 {
-    public int glassHealth = 5;
+    public int glassHealth = 6; //for some reason glass health is subtracted twice each jump, not sure why
 
     public void JumpImpact()
     {
