@@ -322,6 +322,10 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1622682673707126369, guid: 0bc3dc70a8e7c444c8dc9afd96ebbd0d, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: f2b534fe11c85b74995e46470f15b068, type: 2}
     - target: {fileID: 5385597680606286010, guid: 0bc3dc70a8e7c444c8dc9afd96ebbd0d, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -993,6 +997,7 @@ Transform:
   - {fileID: 2065314237}
   - {fileID: 233399890}
   - {fileID: 1883162844}
+  - {fileID: 2137889865}
   m_Father: {fileID: 29098512}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &653454147
@@ -2317,6 +2322,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7372463735915143023, guid: dc7570814d6112748bd6043bd7be3b38, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 503ad67b51dc64b4cbde05a302efe8f0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3362,7 +3371,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 6035487582874088263, guid: 47788901fc912584a89dfbaeb8a1f6b3, type: 3}
+  m_PlayerPrefab: {fileID: 4090914594095868016, guid: 139ff16435870a740b02b933e320f7bf, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1
@@ -3381,7 +3390,7 @@ Transform:
   m_GameObject: {fileID: 2135554679}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.34484363, y: 9.993002, z: 6.284889}
+  m_LocalPosition: {x: 0.34484363, y: 13.85, z: 6.284889}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3499,12 +3508,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137889861}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -12.2, z: 4030}
-  m_LocalScale: {x: 1000, y: 10, z: 1000}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -11.6, y: -12.179999, z: -18.4}
+  m_LocalScale: {x: 100, y: 10, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 648192448}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &248149078842443780
 CanvasRenderer:
@@ -4682,4 +4691,3 @@ SceneRoots:
   - {fileID: 653854982}
   - {fileID: 1118407674}
   - {fileID: 686384348}
-  - {fileID: 2137889865}
