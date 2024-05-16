@@ -106,8 +106,6 @@ public class PlayerController : MonoBehaviour
         Vector3 cameraForward = Quaternion.Euler(0, cameraAngle.eulerAngles.y, 0) * Vector3.forward;
         Vector3 cameraRight = Quaternion.Euler(0, cameraAngle.eulerAngles.y, 0) * Vector3.right;
 
-        Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y);
-
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, groundedRaycastDistance + 0.1f, groundLayer))
         {
@@ -118,6 +116,9 @@ public class PlayerController : MonoBehaviour
                 slow = 1f;
             }
         }
+
+        Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y) * speedMultiplier * slow;
+
 
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.15f);
 
