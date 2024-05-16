@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private float slow = 1f;
     public float slowMultiplier = 0.7f;
     public Rigidbody rb;
-    private bool isGrounded;
+    public bool isGrounded;
     private Quaternion targetRotation;
     public Transform cameraAngle;
     public TextMeshProUGUI announcementText;
@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
         
 
         // Check if the player is grounded
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, groundedRaycastDistance, groundLayer);
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, out hit, 0.8f, groundLayer);
 
         /*Debug.Log(moveVector);
         Debug.Log(movement);
