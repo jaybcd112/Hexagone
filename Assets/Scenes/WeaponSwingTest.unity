@@ -3288,6 +3288,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -8600267300451451713, guid: 70791a9f5bf05e449bb4f083f4058bd1, type: 3}
+      propertyPath: m_TagString
+      value: DesertTile
+      objectReference: {fileID: 0}
     - target: {fileID: -5133233874974788350, guid: 70791a9f5bf05e449bb4f083f4058bd1, type: 3}
       propertyPath: m_LocalScale.y
       value: 80.22156
@@ -3295,6 +3299,10 @@ PrefabInstance:
     - target: {fileID: -3002988517956753736, guid: 70791a9f5bf05e449bb4f083f4058bd1, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -3002988517956753736, guid: 70791a9f5bf05e449bb4f083f4058bd1, type: 3}
+      propertyPath: m_TagString
+      value: DesertTile
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 70791a9f5bf05e449bb4f083f4058bd1, type: 3}
       propertyPath: m_Name
@@ -3304,17 +3312,33 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 70791a9f5bf05e449bb4f083f4058bd1, type: 3}
+      propertyPath: m_TagString
+      value: DesertTile
+      objectReference: {fileID: 0}
     - target: {fileID: 1443139277404079703, guid: 70791a9f5bf05e449bb4f083f4058bd1, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443139277404079703, guid: 70791a9f5bf05e449bb4f083f4058bd1, type: 3}
+      propertyPath: m_TagString
+      value: DesertTile
       objectReference: {fileID: 0}
     - target: {fileID: 4020393288385036774, guid: 70791a9f5bf05e449bb4f083f4058bd1, type: 3}
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4020393288385036774, guid: 70791a9f5bf05e449bb4f083f4058bd1, type: 3}
+      propertyPath: m_TagString
+      value: DesertTile
+      objectReference: {fileID: 0}
     - target: {fileID: 4830636058484943213, guid: 70791a9f5bf05e449bb4f083f4058bd1, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4830636058484943213, guid: 70791a9f5bf05e449bb4f083f4058bd1, type: 3}
+      propertyPath: m_TagString
+      value: DesertTile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
