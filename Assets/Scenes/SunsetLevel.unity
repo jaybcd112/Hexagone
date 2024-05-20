@@ -277,6 +277,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodPlank_01 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 7483558178089845638, guid: 8ec4006999a806c4291e661db75cac17, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7823069418110556476, guid: 8ec4006999a806c4291e661db75cac17, type: 3}
       propertyPath: m_LocalScale.x
       value: 5.732478
@@ -382,6 +386,10 @@ PrefabInstance:
     - target: {fileID: 7483558178089845638, guid: 8ec4006999a806c4291e661db75cac17, type: 3}
       propertyPath: m_Name
       value: WoodPlank_01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483558178089845638, guid: 8ec4006999a806c4291e661db75cac17, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7823069418110556476, guid: 8ec4006999a806c4291e661db75cac17, type: 3}
       propertyPath: m_LocalScale.x
@@ -4305,6 +4313,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bridges
       objectReference: {fileID: 0}
+    - target: {fileID: 442650986795683959, guid: b5b5eace2df417044bcad837ef869627, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2036938502748993235, guid: b5b5eace2df417044bcad837ef869627, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.28
@@ -4345,6 +4357,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2874789496527053533, guid: b5b5eace2df417044bcad837ef869627, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581143854146375907, guid: b5b5eace2df417044bcad837ef869627, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3804874077321975446, guid: b5b5eace2df417044bcad837ef869627, type: 3}
       propertyPath: m_LocalScale.x
       value: 6.179402
@@ -4352,6 +4372,14 @@ PrefabInstance:
     - target: {fileID: 3804874077321975446, guid: b5b5eace2df417044bcad837ef869627, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.6715
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577469753096801324, guid: b5b5eace2df417044bcad837ef869627, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6534752959678488748, guid: b5b5eace2df417044bcad837ef869627, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -4383,6 +4411,10 @@ PrefabInstance:
     - target: {fileID: 7483558178089845638, guid: 8ec4006999a806c4291e661db75cac17, type: 3}
       propertyPath: m_Name
       value: WoodPlank_01 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483558178089845638, guid: 8ec4006999a806c4291e661db75cac17, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7823069418110556476, guid: 8ec4006999a806c4291e661db75cac17, type: 3}
       propertyPath: m_LocalScale.x
