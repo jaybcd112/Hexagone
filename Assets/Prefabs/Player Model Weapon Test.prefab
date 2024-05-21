@@ -305,7 +305,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!95 &4533191746325322112
 Animator:
   serializedVersion: 5
@@ -342,13 +342,16 @@ MonoBehaviour:
   percentage: 0
   lives: 3
   speed: 4.2
-  jumpForce: 30
+  jumpForce: 80
+  jumpCooldown: 3
   groundedRaycastDistance: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 9
   slowMultiplier: 0.7
+  useRigidbodyMovement: 1
   rb: {fileID: 6414965587728106241}
+  isGrounded: 0
   cameraAngle: {fileID: 1409186112349640955, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
   announcementText: {fileID: 0}
   playerIconText: {fileID: 0}
