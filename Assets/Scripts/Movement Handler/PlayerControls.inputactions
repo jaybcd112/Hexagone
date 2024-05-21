@@ -51,18 +51,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Hit",
+                    "name": "Pause",
                     "type": "Button",
-                    "id": "4a39ecc6-6ac0-4535-969f-7a9c73eb7a27",
+                    "id": "30afd91f-eaf1-46f7-b0c0-92710dfbdd48",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause",
+                    "name": "LightHit",
                     "type": "Button",
-                    "id": "30afd91f-eaf1-46f7-b0c0-92710dfbdd48",
+                    "id": "d9e33b72-c831-41c3-a720-cf2ffb5f02a9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HeavyHit",
+                    "type": "Button",
+                    "id": "4b241e63-72de-489e-b605-c6de94384591",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -215,34 +224,56 @@
                 },
                 {
                     "name": "",
-                    "id": "19ffd9d9-dafb-4edc-94ae-0e4de4bdf929",
-                    "path": "<Keyboard>/b",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Hit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8aa9547e-faf3-4b2b-abb4-424259725341",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Hit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "199b365c-0aee-4506-93b2-725e313d876e",
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5598d996-cc57-436e-80ec-0ef52379d84e",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LightHit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1baada9c-2441-4421-bcee-24c714e16e13",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LightHit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "89944fb2-4953-4a4c-9908-afbe1b02a3ef",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HeavyHit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "556ac24b-a4df-4670-bead-0f5957932760",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HeavyHit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

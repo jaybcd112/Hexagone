@@ -25,7 +25,7 @@ public class PlayerManager : MonoBehaviour
         camera.GetComponent<CameraControl>().addTarget(playerInput.gameObject); // Add the new player to the camera targets   
 
         // Find all of the health icons for the new player and assign them to the player controller
-        playerInput.gameObject.GetComponent<PlayerController>().healthIcons = GameObject.Find("Canvas/Player" + playerCount + "Icon").GetComponentsInChildren<UnityEngine.UI.Image>();
+        //playerInput.gameObject.GetComponent<PlayerController>().healthIcons = GameObject.Find("Canvas/Player" + playerCount + "Icon").GetComponentsInChildren<UnityEngine.UI.Image>();
     }
 
     void OnDestroy()

@@ -73,18 +73,27 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Hit"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
-                    ""id"": ""4a39ecc6-6ac0-4535-969f-7a9c73eb7a27"",
+                    ""id"": ""30afd91f-eaf1-46f7-b0c0-92710dfbdd48"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Pause"",
+                    ""name"": ""LightHit"",
                     ""type"": ""Button"",
-                    ""id"": ""30afd91f-eaf1-46f7-b0c0-92710dfbdd48"",
+                    ""id"": ""d9e33b72-c831-41c3-a720-cf2ffb5f02a9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HeavyHit"",
+                    ""type"": ""Button"",
+                    ""id"": ""4b241e63-72de-489e-b605-c6de94384591"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -237,34 +246,56 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""19ffd9d9-dafb-4edc-94ae-0e4de4bdf929"",
-                    ""path"": ""<Keyboard>/b"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Hit"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8aa9547e-faf3-4b2b-abb4-424259725341"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Hit"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""199b365c-0aee-4506-93b2-725e313d876e"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Controller"",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5598d996-cc57-436e-80ec-0ef52379d84e"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LightHit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1baada9c-2441-4421-bcee-24c714e16e13"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LightHit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""89944fb2-4953-4a4c-9908-afbe1b02a3ef"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HeavyHit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""556ac24b-a4df-4670-bead-0f5957932760"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HeavyHit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -614,8 +645,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Join = m_Player.FindAction("Join", throwIfNotFound: true);
-        m_Player_Hit = m_Player.FindAction("Hit", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_LightHit = m_Player.FindAction("LightHit", throwIfNotFound: true);
+        m_Player_HeavyHit = m_Player.FindAction("HeavyHit", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -686,8 +718,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_Join;
-    private readonly InputAction m_Player_Hit;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_LightHit;
+    private readonly InputAction m_Player_HeavyHit;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -697,8 +730,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputAction @Join => m_Wrapper.m_Player_Join;
-        public InputAction @Hit => m_Wrapper.m_Player_Hit;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @LightHit => m_Wrapper.m_Player_LightHit;
+        public InputAction @HeavyHit => m_Wrapper.m_Player_HeavyHit;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -723,12 +757,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Join.started += instance.OnJoin;
             @Join.performed += instance.OnJoin;
             @Join.canceled += instance.OnJoin;
-            @Hit.started += instance.OnHit;
-            @Hit.performed += instance.OnHit;
-            @Hit.canceled += instance.OnHit;
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @LightHit.started += instance.OnLightHit;
+            @LightHit.performed += instance.OnLightHit;
+            @LightHit.canceled += instance.OnLightHit;
+            @HeavyHit.started += instance.OnHeavyHit;
+            @HeavyHit.performed += instance.OnHeavyHit;
+            @HeavyHit.canceled += instance.OnHeavyHit;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -748,12 +785,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Join.started -= instance.OnJoin;
             @Join.performed -= instance.OnJoin;
             @Join.canceled -= instance.OnJoin;
-            @Hit.started -= instance.OnHit;
-            @Hit.performed -= instance.OnHit;
-            @Hit.canceled -= instance.OnHit;
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @LightHit.started -= instance.OnLightHit;
+            @LightHit.performed -= instance.OnLightHit;
+            @LightHit.canceled -= instance.OnLightHit;
+            @HeavyHit.started -= instance.OnHeavyHit;
+            @HeavyHit.performed -= instance.OnHeavyHit;
+            @HeavyHit.canceled -= instance.OnHeavyHit;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -850,8 +890,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnJoin(InputAction.CallbackContext context);
-        void OnHit(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnLightHit(InputAction.CallbackContext context);
+        void OnHeavyHit(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

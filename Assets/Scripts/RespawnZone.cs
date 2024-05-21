@@ -11,11 +11,11 @@ public class RespawnZone : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (other.gameObject.GetComponent<PlayerController>().getLives() == 1)
+            if (other.gameObject.GetComponent<NewPlayerController>().GetLives() == 1)
             {
-                other.gameObject.GetComponent<PlayerController>().dead();
+                other.gameObject.GetComponent<NewPlayerController>().Dead();
             }
-            other.gameObject.GetComponent<PlayerController>().updateLives(-1);
+            other.gameObject.GetComponent<NewPlayerController>().UpdateLives(-1);
             other.transform.position = respawnPoint.position;
         }
     }
