@@ -194,6 +194,7 @@ MonoBehaviour:
     m_Bits: 1
   slowMultiplier: 0.7
   rb: {fileID: 0}
+  isGrounded: 0
   cameraAngle: {fileID: 1409186112349640955, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
   announcementText: {fileID: 0}
   playerIconText: {fileID: 0}
@@ -234,7 +235,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4090914594095868016}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 74d94fef0a4b3254585101ad333030d3, type: 3}
   m_Controller: {fileID: 9100000, guid: 18ce043e3ec0f75448487227edd82618, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0

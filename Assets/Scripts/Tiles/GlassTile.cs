@@ -25,5 +25,6 @@ public class GlassTile : MonoBehaviour
 
         if (glassHealth == 0)
             Destroy(gameObject);
+            shader.SetFloat("_Smoothness", 0f);
     }
 }
