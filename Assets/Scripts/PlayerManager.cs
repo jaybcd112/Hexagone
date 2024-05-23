@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
     private int playerCount = 0;
-    public Camera camera; 
+    public Camera followCam;
+    public GameObject[] playerUi;
 
     void Start()
     {
@@ -20,12 +22,11 @@ public class PlayerManager : MonoBehaviour
 
     public void HandlePlayerJoined(PlayerInput playerInput)
     {
-        playerCount++;  // Increment the player count
-        playerInput.gameObject.name = "Player" + playerCount;  // Assign the new name
-        camera.GetComponent<CameraControl>().addTarget(playerInput.gameObject); // Add the new player to the camera targets   
-
-        // Find all of the health icons for the new player and assign them to the player controller
-        //playerInput.gameObject.GetComponent<PlayerController>().healthIcons = GameObject.Find("Canvas/Player" + playerCount + "Icon").GetComponentsInChildren<UnityEngine.UI.Image>();
+        playerCount++;
+        playerInput.gameObject.name = "Player" + playerCount;
+        followCam.GetComponent<CameraControl>().AddTarget(playerInput.gameObject);   
+        EnableUIElements(playerInput.gameObject.name);
+        EnableHealthIcons(playerInput.gameObject);
     }
 
     void OnDestroy()
@@ -36,4 +37,51 @@ public class PlayerManager : MonoBehaviour
             PlayerInputManager.instance.onPlayerJoined -= HandlePlayerJoined;
         }
     }
+
+    public void EnableHealthIcons(GameObject currentPlayer)
+    {
+        string playerName = currentPlayer.name;
+
+        switch (playerName)
+        {
+            case "Player1":
+                currentPlayer.GetComponent<NewPlayerController>().healthIcons = playerUi[0].GetComponentsInChildren<Image>();
+                break;
+            case "Player2":
+                currentPlayer.GetComponent<NewPlayerController>().healthIcons = playerUi[1].GetComponentsInChildren<Image>();
+                break;
+            case "Player3":
+                currentPlayer.GetComponent<NewPlayerController>().healthIcons = playerUi[2].GetComponentsInChildren<Image>();
+                break;
+            case "Player4":
+                currentPlayer.GetComponent<NewPlayerController>().healthIcons = playerUi[3].GetComponentsInChildren<Image>();
+                break;
+            default:
+                Debug.LogError("Invalid player number!");
+                break;
+        }
+    }
+    public void EnableUIElements(string currentPlayer)
+    {
+        switch (currentPlayer)
+        {
+            case "Player1":
+                playerUi[0].SetActive(true);
+
+                break;
+            case "Player2":
+                playerUi[1].SetActive(true);
+                break;
+            case "Player3":
+                playerUi[2].SetActive(true);
+                break;
+            case "Player4":
+                playerUi[3].SetActive(true);
+                break;
+            default:
+                Debug.LogError("Invalid player number!");
+                break;
+        }
+    }
+
 }

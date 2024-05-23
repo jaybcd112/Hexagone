@@ -79,19 +79,19 @@ MonoBehaviour:
   percentage: 0
   lives: 3
   speed: 4
-  jumpForce: 4
+  jumpForce: 5
   groundedRaycastDistance: 0.1
   slowMultiplier: 0.75
   rotationSpeed: 5
   baseKnockback: 5
   rb: {fileID: 8828178685196049071}
   cameraAngle: {fileID: 1409186112349640955, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
-  announcementText: {fileID: 0}
-  playerIconText: {fileID: 0}
-  healthIcons: []
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  skinnedMeshRenderer: {fileID: 908876880051725215}
+  playerIconText: {fileID: 0}
+  healthIcons: []
 --- !u!114 &-2895298024014735597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,6 +463,11 @@ PrefabInstance:
 --- !u!4 &740731726831315461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7256968083177050996, guid: efc72d654c6fad64f88e7074581669ed, type: 3}
+  m_PrefabInstance: {fileID: 7994581556108327281}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &908876880051725215 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -2130608182212060434, guid: efc72d654c6fad64f88e7074581669ed, type: 3}
   m_PrefabInstance: {fileID: 7994581556108327281}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7600049685390466714 stripped

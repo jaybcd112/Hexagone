@@ -18,11 +18,8 @@ public class Weapon : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && collision.gameObject != transform.root.gameObject)
         {
-            Debug.Log(collision.gameObject);
             float power = basePower  * 1000 + collision.gameObject.GetComponent<NewPlayerController>().percentage * 500;
-            Debug.Log(power);
             collision.gameObject.GetComponent<Rigidbody>().AddExplosionForce(power, transform.position, radius, 0f);
-            
             collision.gameObject.GetComponent<NewPlayerController>().UpdatePercentage(10);
         }
     }

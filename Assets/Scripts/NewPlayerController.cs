@@ -20,10 +20,8 @@ public class NewPlayerController : MonoBehaviour
     [Header("Components")]
     public Rigidbody rb;
     public Transform cameraAngle;
-    public TextMeshProUGUI announcementText;
-    public TextMeshProUGUI playerIconText;
-    public Image[] healthIcons;
     public LayerMask groundLayer;
+    public SkinnedMeshRenderer skinnedMeshRenderer;
 
 
     //private variables
@@ -35,6 +33,10 @@ public class NewPlayerController : MonoBehaviour
     private float speedMultiplier = 1f;
     private Weapon weapon;
 
+    [HideInInspector]
+    public TextMeshProUGUI playerIconText;
+    public Image[] healthIcons;
+
     public void Awake()
     {
         weapon = GetComponentInChildren<Weapon>();
@@ -44,8 +46,7 @@ public class NewPlayerController : MonoBehaviour
         string currentPlayer = "Player" + playerName.Substring(6);
         GameObject playerIcon = GameObject.Find("Canvas/" + currentPlayer + "Icon");
         playerIconText = playerIcon.transform.Find("Current %").GetComponent<TextMeshProUGUI>();
-        announcementText = GameObject.Find("Canvas/Announcement Text").GetComponent<TextMeshProUGUI>();
-        //setPlayerColor(currentPlayer);
+        SetPlayerColor(currentPlayer);
     }
 
     public void OnMovementPerformed(InputAction.CallbackContext value)
@@ -97,9 +98,9 @@ public class NewPlayerController : MonoBehaviour
         if (isGrounded)
         {
             isGrounded = false;
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            RaycastHit hit;
+            rb.AddForce(Vector3.up * jumpForce * 100, ForceMode.Impulse);
 
+            RaycastHit hit;
             if (Physics.Raycast(transform.position, Vector3.down, out hit, groundedRaycastDistance, groundLayer))
             {
                 if (hit.collider.tag == "GlassTile")
@@ -201,16 +202,19 @@ public class NewPlayerController : MonoBehaviour
         switch (currentPlayer)
         {
             case "Player1":
-                this.gameObject.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Player1");
+                skinnedMeshRenderer.material = Resources.Load<Material>("Materials/Player1");
                 break;
             case "Player2":
-                this.gameObject.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Player2");
+                skinnedMeshRenderer.material = Resources.Load<Material>("Materials/Player2");
                 break;
             case "Player3":
-                this.gameObject.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Player3");
+                skinnedMeshRenderer.material = Resources.Load<Material>("Materials/Player3");
                 break;
             case "Player4":
-                this.gameObject.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Player4");
+                skinnedMeshRenderer.material = Resources.Load<Material>("Materials/Player4");
+                break;
+            default:
+                Debug.LogError("Invalid player number!");
                 break;
         }
     }
@@ -230,11 +234,6 @@ public class NewPlayerController : MonoBehaviour
             speedMultiplier = 1f;
         }
        
-    }
-    public void Dead()
-    {
-        announcementText.text = this.gameObject.name + " is dead";
-        this.gameObject.SetActive(false);
     }
 
     public void Pause()

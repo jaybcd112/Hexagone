@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded && jumpCooldownTimer == 0f)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); // Apply jump force only when grounded
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             RaycastHit hit;
             if (Physics.Raycast(transform.position, Vector3.down, out hit, groundedRaycastDistance + 0.1f, groundLayer))
             {
@@ -84,11 +84,6 @@ public class PlayerController : MonoBehaviour
             }
             jumpCooldownTimer = jumpCooldown;
         }
-    }
-
-    public void OnJumpCanceled(InputAction.CallbackContext value)
-    {
-        // add jump cancel logic here if needed
     }
 
     public void OnHitPerformed(InputAction.CallbackContext value)
@@ -154,9 +149,6 @@ public class PlayerController : MonoBehaviour
         }
         Debug.Log(jumpCooldownTimer);
 
-        /*Debug.Log(moveVector);
-        Debug.Log(movement);
-        Debug.Log("Grounded: " + isGrounded);*/
     }
 
     public void updatePercentage(int newPercentage)
