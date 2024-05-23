@@ -11,11 +11,13 @@ public class RespawnZone : MonoBehaviour
     public GameObject[] playerUi;
     public TextMeshProUGUI playerAnnouncementText;
     public GameObject cameraControls;
+    public AudioSource deathRah;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
+            deathRah.Play();
             if (other.gameObject.GetComponent<NewPlayerController>().GetLives() == 1)
             {
                 StartCoroutine(PlayerDead(other.gameObject));
@@ -89,6 +91,7 @@ public class RespawnZone : MonoBehaviour
         playerAnnouncementText.text = "";
 
     }
+
 
 
 

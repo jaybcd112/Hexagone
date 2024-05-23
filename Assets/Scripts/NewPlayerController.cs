@@ -14,7 +14,7 @@ public class NewPlayerController : MonoBehaviour
     public float speed = 1f;
     public float jumpForce = 10f;
     public float groundedRaycastDistance = 0.1f;
-    public float slowMultiplier = 0.7f;
+
     public float rotationSpeed = 1f;
     public float baseKnockback = 5f;
 
@@ -28,8 +28,7 @@ public class NewPlayerController : MonoBehaviour
     [Header("Audio Sources")]
     public AudioSource LightAttack;
     public AudioSource HeavyAttack;
-    //public AudioSource DeathRah;
-
+    public AudioSource DeathRah;
 
     //private variables
     private Vector2 moveVector = Vector2.zero;
@@ -166,7 +165,7 @@ public class NewPlayerController : MonoBehaviour
     private void FixedUpdate()
     {
 
-        Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y) * speed * slowMultiplier;
+        Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y) * speed * speedMultiplier;
 
         if (useRigidbodyMovement)
         {
@@ -250,7 +249,7 @@ public class NewPlayerController : MonoBehaviour
     {
         if (other.CompareTag("DesertTile"))
         {
-            speedMultiplier = 0.75f;
+            speedMultiplier = 0.5f;
         }
     }
 
@@ -263,10 +262,10 @@ public class NewPlayerController : MonoBehaviour
 
     }
 
-    private void OnDestroy()
+    /*private void OnDestroy()
     {
         Instantiate(deathYellSFX, transform.position, transform.rotation);
-    }
+    }*/
 
     public void Pause()
     {

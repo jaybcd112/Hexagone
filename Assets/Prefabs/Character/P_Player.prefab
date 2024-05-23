@@ -96,9 +96,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   skinnedMeshRenderer: {fileID: 908876880051725215}
-  deathYellSFX: {fileID: 2702683182793292928, guid: 89938c1492b45444e84e7421f2b28b6f, type: 3}
+  deathYellSFX: {fileID: 0}
   LightAttack: {fileID: -4797967479213954839}
   HeavyAttack: {fileID: -1943702401154364600}
+  DeathRah: {fileID: 0}
   playerIconText: {fileID: 0}
   healthIcons: []
 --- !u!114 &-2895298024014735597
