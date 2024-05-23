@@ -79,7 +79,7 @@ MonoBehaviour:
   percentage: 0
   lives: 3
   speed: 4
-  jumpForce: 5
+  jumpForce: 4
   groundedRaycastDistance: 0.1
   slowMultiplier: 0.75
   rotationSpeed: 5

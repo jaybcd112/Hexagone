@@ -86,6 +86,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnJumpCanceled(InputAction.CallbackContext value)
+    {
+        // add jump cancel logic here if needed
+    }
+
     public void OnHitPerformed(InputAction.CallbackContext value)
     {
         // Check if the animator is currently playing the "SwingDown" state
