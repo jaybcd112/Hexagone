@@ -257,6 +257,17 @@
                 },
                 {
                     "name": "",
+                    "id": "931301e9-41f8-4442-9ccf-9ace586373c3",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "LightHit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "89944fb2-4953-4a4c-9908-afbe1b02a3ef",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
@@ -273,6 +284,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+                    "action": "HeavyHit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8fe7c587-8671-450b-8710-a410d77ede58",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
                     "action": "HeavyHit",
                     "isComposite": false,
                     "isPartOfComposite": false

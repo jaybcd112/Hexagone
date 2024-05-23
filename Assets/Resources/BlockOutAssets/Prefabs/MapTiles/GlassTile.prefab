@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7372463735915143023}
   - component: {fileID: 3983772561828462420}
   - component: {fileID: 1812842284268809161}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GlassTile
-  m_TagString: Untagged
+  m_TagString: GlassTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -11.22, y: -0.01999998, z: -38.75}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 100, y: 100, z: 119.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -119,4 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157f74d737482c1499f064e1dca8e911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glassHealth: 6
+  glassStartingHealth: 3
+  shader: {fileID: 2100000, guid: 572b5fe1ed6c57b47acdddf952f14e82, type: 2}
+  glassCrack: {fileID: 0}
+  glassShatter: {fileID: 0}
