@@ -153,7 +153,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e30caf179d4dd499d52d05a12394a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnnouncementTime: 5
   respawnPoint: {fileID: 1093740518}
+  playerUi: []
+  playerAnnouncementText: {fileID: 0}
+  cameraControls: {fileID: 0}
 --- !u!65 &10195091
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -707,7 +711,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e30caf179d4dd499d52d05a12394a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnnouncementTime: 5
   respawnPoint: {fileID: 1093740518}
+  playerUi: []
+  playerAnnouncementText: {fileID: 0}
+  cameraControls: {fileID: 0}
 --- !u!4 &233399890 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5401851563816100647, guid: 0bc3dc70a8e7c444c8dc9afd96ebbd0d, type: 3}
@@ -1143,7 +1151,7 @@ Terrain:
   m_GameObject: {fileID: 369591405}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 2ae9c7f6ab739c54384ebb98cb921a95, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 13573a9179404cf459ca539a95339aeb, type: 2}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -2200,7 +2208,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e30caf179d4dd499d52d05a12394a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnnouncementTime: 5
   respawnPoint: {fileID: 1093740518}
+  playerUi: []
+  playerAnnouncementText: {fileID: 0}
+  cameraControls: {fileID: 0}
 --- !u!65 &829685959
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2428,7 +2440,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e30caf179d4dd499d52d05a12394a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnnouncementTime: 5
   respawnPoint: {fileID: 1093740518}
+  playerUi: []
+  playerAnnouncementText: {fileID: 0}
+  cameraControls: {fileID: 0}
 --- !u!65 &934947245
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2985,7 +3001,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e30caf179d4dd499d52d05a12394a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnnouncementTime: 5
   respawnPoint: {fileID: 1093740518}
+  playerUi: []
+  playerAnnouncementText: {fileID: 0}
+  cameraControls: {fileID: 0}
 --- !u!65 &1353467755
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3792,7 +3812,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e30caf179d4dd499d52d05a12394a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnnouncementTime: 5
   respawnPoint: {fileID: 1093740518}
+  playerUi: []
+  playerAnnouncementText: {fileID: 0}
+  cameraControls: {fileID: 0}
 --- !u!65 &1720325722
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4723,7 +4747,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 6035487582874088263, guid: 47788901fc912584a89dfbaeb8a1f6b3, type: 3}
+  m_PlayerPrefab: {fileID: 2980662345076416489, guid: 4cab3f9235b9353479ec1f0dd121ccaf, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1
@@ -4760,7 +4784,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b846037e96c8394eb95f160f6736516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 547892232}
+  followCam: {fileID: 547892232}
+  playerUi: []
 --- !u!1 &2137889861
 GameObject:
   m_ObjectHideFlags: 0

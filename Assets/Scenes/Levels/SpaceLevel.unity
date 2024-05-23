@@ -153,7 +153,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e30caf179d4dd499d52d05a12394a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnnouncementTime: 5
   respawnPoint: {fileID: 1093740518}
+  playerUi: []
+  playerAnnouncementText: {fileID: 0}
+  cameraControls: {fileID: 0}
 --- !u!65 &10195091
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -995,7 +999,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e30caf179d4dd499d52d05a12394a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnnouncementTime: 5
   respawnPoint: {fileID: 1093740518}
+  playerUi: []
+  playerAnnouncementText: {fileID: 0}
+  cameraControls: {fileID: 0}
 --- !u!1 &232607793
 GameObject:
   m_ObjectHideFlags: 0
@@ -2985,11 +2993,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524478991}
   m_Mesh: {fileID: 4300066, guid: fe8bb5221257840c2805e380fc94544a, type: 3}
---- !u!20 &547892232 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2863949996218205993, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
-  m_PrefabInstance: {fileID: 3545441230879589037}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &553444990
 GameObject:
   m_ObjectHideFlags: 0
@@ -4766,7 +4769,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e30caf179d4dd499d52d05a12394a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnnouncementTime: 5
   respawnPoint: {fileID: 1093740518}
+  playerUi: []
+  playerAnnouncementText: {fileID: 0}
+  cameraControls: {fileID: 0}
 --- !u!65 &829685959
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5367,7 +5374,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e30caf179d4dd499d52d05a12394a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnnouncementTime: 5
   respawnPoint: {fileID: 1093740518}
+  playerUi: []
+  playerAnnouncementText: {fileID: 0}
+  cameraControls: {fileID: 0}
 --- !u!65 &934947245
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8499,7 +8510,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e30caf179d4dd499d52d05a12394a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnnouncementTime: 5
   respawnPoint: {fileID: 1093740518}
+  playerUi: []
+  playerAnnouncementText: {fileID: 0}
+  cameraControls: {fileID: 0}
 --- !u!65 &1353467755
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11470,7 +11485,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e30caf179d4dd499d52d05a12394a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnnouncementTime: 5
   respawnPoint: {fileID: 1093740518}
+  playerUi: []
+  playerAnnouncementText: {fileID: 0}
+  cameraControls: {fileID: 0}
 --- !u!65 &1720325722
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13937,7 +13956,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b846037e96c8394eb95f160f6736516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 547892232}
+  followCam: {fileID: 0}
+  playerUi: []
 --- !u!222 &248149078842443780
 CanvasRenderer:
   m_ObjectHideFlags: 0

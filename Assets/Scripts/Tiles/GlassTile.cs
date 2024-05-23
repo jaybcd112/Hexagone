@@ -9,6 +9,8 @@ public class GlassTile : MonoBehaviour
     private float smoothnessIncrement;
     private float smoothnessValue;
     public Material shader;
+    public AudioSource glassCrack;
+    public AudioSource glassShatter;
 
 
     public void Start()
@@ -22,9 +24,13 @@ public class GlassTile : MonoBehaviour
         glassHealth--;
         smoothnessValue = smoothnessValue + smoothnessIncrement;
         shader.SetFloat("_Smoothness", smoothnessValue);
+        glassCrack.Play();
 
         if (glassHealth == 0)
+        {
+            glassShatter.Play();
             Destroy(gameObject);
             shader.SetFloat("_Smoothness", 0f);
+        }
     }
 }

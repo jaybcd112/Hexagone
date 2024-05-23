@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0eb252f05872a874bbcb9080e240e653
+guid: 5bfa4a6cdff812073a331dcc1e0499af
 importerOverride:
   nativeImporterType: 2089858483
   scriptedImporterType:
@@ -55,7 +55,7 @@ ScriptedImporter:
     flipbookColumns: 0
     ignorePngGamma: 0
     cookieMode: 0
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 0
@@ -76,17 +76,17 @@ ScriptedImporter:
     textureFormatSet: 0
     applyGammaDecoding: 0
   spriteImportData:
-  - name: UI_StartMenu_1
+  - name: 
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 1920
-      height: 1080
+      width: 0
+      height: 0
     spriteID: 
     spriteBone: []
     spriteOutline: []
@@ -110,7 +110,7 @@ ScriptedImporter:
       y: 590
       width: 364
       height: 35
-    spriteID: d4711a35b3d302314b9b8dd1f02f854d
+    spriteID: cc3b9e399f4b6f4db808f051c8874267
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -127,11 +127,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 792
+      x: 870
       y: 696
       width: 145
       height: 34
-    spriteID: 6bc881f8b81b3cd9e9cac054af6e7d65
+    spriteID: 752dd88a3caedb9c7a02fd0a82cca65f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,7 +139,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 792, y: 696}
+    uvTransform: {x: 870, y: 696}
     spritePosition: {x: 159, y: 50}
   - name: Settings
     originalName: 
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 633
       width: 313
       height: 35
-    spriteID: aada1ed14780e2d939d246db33ced645
+    spriteID: 8b7a3b33ff8be751fa87dfc44d6f55fe
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -169,11 +169,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 570
+      x: 648
       y: 696
       width: 214
       height: 35
-    spriteID: 9e791f44baa5179a3a4f3e5389a84de0
+    spriteID: 1e205714073fc21aabdd1b60ee862164
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,9 +181,9 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 570, y: 696}
+    uvTransform: {x: 648, y: 696}
     spritePosition: {x: 116, y: 315}
-  - name: Rectangle 1 copy 5
+  - name: Quit Button Highlighted
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -194,7 +194,7 @@ ScriptedImporter:
       y: 590
       width: 636
       height: 98
-    spriteID: 47a1256c714a5d5e2a41fbfc707c5956
+    spriteID: 7c8099fa739d8e96db58c31ec64dcb43
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -204,7 +204,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 589}
     spritePosition: {x: 0, y: 18}
-  - name: Rectangle 1 copy 4
+  - name: Quit Button
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -213,9 +213,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 696
-      width: 558
+      width: 636
       height: 98
-    spriteID: b70f243381f1ffb718a06dc432150b78
+    spriteID: c0d34035a377a0c7ba40e197090a3dba
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -224,8 +224,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 695}
-    spritePosition: {x: 0, y: 150}
-  - name: Rectangle 1
+    spritePosition: {x: 0, y: 18}
+  - name: Settings Button Highlighted
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -234,9 +234,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 802
-      width: 483
+      width: 558
       height: 98
-    spriteID: 688a553ab2461d022b6e9acdd8d8599d
+    spriteID: bb40d49df0b01d6f2a4756f7ebc84894
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -245,6 +245,69 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 801}
+    spritePosition: {x: 0, y: 150}
+  - name: Settings Button
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 908
+      width: 558
+      height: 98
+    spriteID: 9e13d58fe94daa68d826c32d845e0bfb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 907}
+    spritePosition: {x: 0, y: 150}
+  - name: Start Button Highlighted
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1014
+      width: 483
+      height: 98
+    spriteID: e29537eaa566dae788946bf435f74177
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1013}
+    spritePosition: {x: 0, y: 282}
+  - name: Start Button
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 495
+      y: 1014
+      width: 483
+      height: 98
+    spriteID: 6b2ea934923c0165aac311bac702b2f7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 495, y: 1013}
     spritePosition: {x: 0, y: 282}
   - name: Polygon 1 copy
     originalName: 
@@ -257,7 +320,7 @@ ScriptedImporter:
       y: 4
       width: 682
       height: 408
-    spriteID: 1af1a87d749c1dc799a28dfea4b245a9
+    spriteID: d72f03be9bd69eb3282ff391999113f3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -278,7 +341,7 @@ ScriptedImporter:
       y: 420
       width: 540
       height: 162
-    spriteID: 6b854ad14b13dcfe6b04d61ca6d285af
+    spriteID: 817aef35b7c8a032ab5c345ca11f9027
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -303,55 +366,7 @@ ScriptedImporter:
     characterGroups: []
     pivot: {x: 0, y: 0}
     boneReadOnly: 0
-  platformSettings:
-  - name: DefaultTexturePlatform
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Server
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: WebGL
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
+  platformSettings: []
   mosaicLayers: 1
   characterMode: 1
   documentPivot: {x: 0, y: 0}
@@ -376,8 +391,8 @@ ScriptedImporter:
     spriteName: Hexa-GONE
     isGroup: 0
     parentIndex: -1
-    spriteID: d4711a35b3d302314b9b8dd1f02f854d
-    layerID: 5
+    spriteID: cc3b9e399f4b6f4db808f051c8874267
+    layerID: 0
     mosaicPosition: {x: 648, y: 590}
     flatten: 0
     isImported: 1
@@ -386,9 +401,9 @@ ScriptedImporter:
     spriteName: Quit
     isGroup: 0
     parentIndex: -1
-    spriteID: 6bc881f8b81b3cd9e9cac054af6e7d65
-    layerID: 35
-    mosaicPosition: {x: 792, y: 696}
+    spriteID: 752dd88a3caedb9c7a02fd0a82cca65f
+    layerID: -1482650671
+    mosaicPosition: {x: 870, y: 696}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -396,8 +411,8 @@ ScriptedImporter:
     spriteName: Settings
     isGroup: 0
     parentIndex: -1
-    spriteID: aada1ed14780e2d939d246db33ced645
-    layerID: 34
+    spriteID: 8b7a3b33ff8be751fa87dfc44d6f55fe
+    layerID: 681682073
     mosaicPosition: {x: 648, y: 633}
     flatten: 0
     isImported: 1
@@ -406,39 +421,69 @@ ScriptedImporter:
     spriteName: Start
     isGroup: 0
     parentIndex: -1
-    spriteID: 9e791f44baa5179a3a4f3e5389a84de0
-    layerID: 19
-    mosaicPosition: {x: 570, y: 696}
+    spriteID: 1e205714073fc21aabdd1b60ee862164
+    layerID: -1436209294
+    mosaicPosition: {x: 648, y: 696}
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: Rectangle 1 copy 5
-    spriteName: Rectangle 1 copy 5
+  - name: Quit Button Highlighted
+    spriteName: Quit Button Highlighted
     isGroup: 0
     parentIndex: -1
-    spriteID: 47a1256c714a5d5e2a41fbfc707c5956
-    layerID: 33
+    spriteID: 7c8099fa739d8e96db58c31ec64dcb43
+    layerID: -1417784066
     mosaicPosition: {x: 4, y: 590}
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: Rectangle 1 copy 4
-    spriteName: Rectangle 1 copy 4
+  - name: Quit Button
+    spriteName: Quit Button
     isGroup: 0
     parentIndex: -1
-    spriteID: b70f243381f1ffb718a06dc432150b78
-    layerID: 32
+    spriteID: c0d34035a377a0c7ba40e197090a3dba
+    layerID: 144590243
     mosaicPosition: {x: 4, y: 696}
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: Rectangle 1
-    spriteName: Rectangle 1
+  - name: Settings Button Highlighted
+    spriteName: Settings Button Highlighted
     isGroup: 0
     parentIndex: -1
-    spriteID: 688a553ab2461d022b6e9acdd8d8599d
-    layerID: 4
+    spriteID: bb40d49df0b01d6f2a4756f7ebc84894
+    layerID: 1523226208
     mosaicPosition: {x: 4, y: 802}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Settings Button
+    spriteName: Settings Button
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 9e13d58fe94daa68d826c32d845e0bfb
+    layerID: -1847297165
+    mosaicPosition: {x: 4, y: 908}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Start Button Highlighted
+    spriteName: Start Button Highlighted
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e29537eaa566dae788946bf435f74177
+    layerID: 1424841495
+    mosaicPosition: {x: 4, y: 1014}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Start Button
+    spriteName: Start Button
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6b2ea934923c0165aac311bac702b2f7
+    layerID: -1853525130
+    mosaicPosition: {x: 495, y: 1014}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -446,8 +491,8 @@ ScriptedImporter:
     spriteName: Polygon 1 copy
     isGroup: 0
     parentIndex: -1
-    spriteID: 1af1a87d749c1dc799a28dfea4b245a9
-    layerID: 31
+    spriteID: d72f03be9bd69eb3282ff391999113f3
+    layerID: -722184444
     mosaicPosition: {x: 4, y: 4}
     flatten: 0
     isImported: 1
@@ -456,8 +501,8 @@ ScriptedImporter:
     spriteName: Polygon 1
     isGroup: 0
     parentIndex: -1
-    spriteID: 6b854ad14b13dcfe6b04d61ca6d285af
-    layerID: 2
+    spriteID: 817aef35b7c8a032ab5c345ca11f9027
+    layerID: 291288685
     mosaicPosition: {x: 4, y: 420}
     flatten: 0
     isImported: 1
@@ -466,8 +511,8 @@ ScriptedImporter:
     spriteName: 
     isGroup: 0
     parentIndex: -1
-    spriteID: f7bb605caf270c34484e508e317bd03d
-    layerID: 3
+    spriteID: 42e5964d6897773a78410c8742bbc754
+    layerID: -7500616
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
     isImported: 0
@@ -476,8 +521,8 @@ ScriptedImporter:
     spriteName: 
     isGroup: 0
     parentIndex: -1
-    spriteID: e4330232272c733649f25d4a271aeda1
-    layerID: 1
+    spriteID: 1d55a7bd17cb9d3c1a8e1cbb6e1c4cb1
+    layerID: 332801758
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
     isImported: 0

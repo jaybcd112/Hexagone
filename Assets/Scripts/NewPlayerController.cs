@@ -8,6 +8,7 @@ using Unity.VisualScripting;
 public class NewPlayerController : MonoBehaviour
 {
     [Header("Player Settings")]
+    public bool useRigidbodyMovement = false;
     public int percentage = 0;
     public int lives = 3;
     public float speed = 1f;
@@ -22,6 +23,12 @@ public class NewPlayerController : MonoBehaviour
     public Transform cameraAngle;
     public LayerMask groundLayer;
     public SkinnedMeshRenderer skinnedMeshRenderer;
+    public GameObject deathYellSFX;
+
+    [Header("Audio Sources")]
+    public AudioSource LightAttack;
+    public AudioSource HeavyAttack;
+    //public AudioSource DeathRah;
 
 
     //private variables
@@ -32,10 +39,12 @@ public class NewPlayerController : MonoBehaviour
     private bool canAttack;
     private float speedMultiplier = 1f;
     private Weapon weapon;
+    private ParticleSystem ps;
 
     [HideInInspector]
     public TextMeshProUGUI playerIconText;
     public Image[] healthIcons;
+
 
     public void Awake()
     {
@@ -46,6 +55,7 @@ public class NewPlayerController : MonoBehaviour
         string currentPlayer = "Player" + playerName.Substring(6);
         GameObject playerIcon = GameObject.Find("Canvas/" + currentPlayer + "Icon");
         playerIconText = playerIcon.transform.Find("Current %").GetComponent<TextMeshProUGUI>();
+        ps = GetComponent<ParticleSystem>();
         SetPlayerColor(currentPlayer);
     }
 
@@ -118,6 +128,7 @@ public class NewPlayerController : MonoBehaviour
         {
             StartCoroutine(AttackCooldown(1.26f));
             animator.Play("LightAttack");
+            LightAttack.Play();
         }
     }
 
@@ -127,6 +138,7 @@ public class NewPlayerController : MonoBehaviour
         {
             StartCoroutine(AttackCooldown(1.46f));
             animator.Play("HeavyAttack");
+            HeavyAttack.Play();
         }
     }
 
@@ -154,9 +166,19 @@ public class NewPlayerController : MonoBehaviour
     private void FixedUpdate()
     {
 
-        Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y);
+        Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y) * speed * slowMultiplier;
 
-        transform.Translate(movement * speed * speedMultiplier * Time.deltaTime, Space.World);
+        if (useRigidbodyMovement)
+        {
+            rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
+        }
+        else
+        {
+            transform.Translate(movement * Time.deltaTime, Space.World);
+        }
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.15f);
+        transform.rotation = targetRotation;
 
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, groundedRaycastDistance + 0.1f, groundLayer))
@@ -164,7 +186,7 @@ public class NewPlayerController : MonoBehaviour
             isGrounded = true;
         }
         else
-        { 
+        {
             isGrounded = false;
         }
     }
@@ -199,19 +221,24 @@ public class NewPlayerController : MonoBehaviour
 
     public void SetPlayerColor(string currentPlayer)
     {
+        var main = ps.main;
         switch (currentPlayer)
         {
             case "Player1":
                 skinnedMeshRenderer.material = Resources.Load<Material>("Materials/Player1");
+                main.startColor = new Color(1f, 0f, 0f, 1f);
                 break;
             case "Player2":
                 skinnedMeshRenderer.material = Resources.Load<Material>("Materials/Player2");
+                main.startColor = new Color(1f, 0f, 1f, 1f);
                 break;
             case "Player3":
                 skinnedMeshRenderer.material = Resources.Load<Material>("Materials/Player3");
+                main.startColor = new Color(0f, 1f, 1f, 1f);
                 break;
             case "Player4":
                 skinnedMeshRenderer.material = Resources.Load<Material>("Materials/Player4");
+                main.startColor = new Color(0f, 1f, 0f, 1f);
                 break;
             default:
                 Debug.LogError("Invalid player number!");
@@ -233,7 +260,12 @@ public class NewPlayerController : MonoBehaviour
         {
             speedMultiplier = 1f;
         }
-       
+
+    }
+
+    private void OnDestroy()
+    {
+        Instantiate(deathYellSFX, transform.position, transform.rotation);
     }
 
     public void Pause()
