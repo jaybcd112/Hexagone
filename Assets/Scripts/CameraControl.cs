@@ -92,7 +92,7 @@ public class CameraControl : MonoBehaviour
         return bounds.center;
     }
 
-    public void addTarget(GameObject target)
+    public void AddTarget(GameObject target)
     {
         Transform[] newTargets = new Transform[targets.Length + 1];
         for (int i = 0; i < targets.Length; i++)
@@ -101,5 +101,36 @@ public class CameraControl : MonoBehaviour
         }
         newTargets[targets.Length] = target.transform;
         targets = newTargets;
+    }
+
+    public void RemoveTarget(GameObject target) 
+    {
+        int indexToRemove = -1;
+        for (int i = 0; i < targets.Length; i++)
+        {
+            if (targets[i].gameObject == target)
+            {
+                indexToRemove = i;
+                break;
+            }
+        }
+        if (indexToRemove != -1)
+        {
+            Transform[] newTargets = new Transform[targets.Length - 1];
+            int newIndex = 0;
+            for (int i = 0; i < targets.Length; i++)
+            {
+                if (i != indexToRemove)
+                {
+                    newTargets[newIndex] = targets[i];
+                    newIndex++;
+                }
+            }
+            targets = newTargets;
+        }
+        else
+        {
+            Debug.LogWarning("Target not found in the camera's targets list.");
+        }
     }
 }

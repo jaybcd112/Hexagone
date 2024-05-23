@@ -8,6 +8,7 @@ TagManager:
   - KillZone
   - GlassTile
   - DesertTile
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
+  - Post Process
   - 
   - 
   - 

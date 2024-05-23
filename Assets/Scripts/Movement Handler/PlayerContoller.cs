@@ -9,12 +9,18 @@ public class PlayerController : MonoBehaviour
     public int percentage = 0;
     public int lives = 3;
     public float speed;
-    public float jumpForce;
+    public float jumpForce = 80f;
+    public float jumpCooldown = 1f;
+    private float jumpCooldownTimer = 0f;
     public float groundedRaycastDistance = 0.1f; // Distance to check for ground
     public LayerMask groundLayer; // Layer mask for the ground objects
-    private float speedMultiplier = 1f;
+
+    //private float speedMultiplier = 1f;
+
     private float slow = 1f;
     public float slowMultiplier = 0.7f;
+
+    public bool useRigidbodyMovement = false;
     public Rigidbody rb;
     public bool isGrounded;
     private Quaternion targetRotation;
@@ -33,6 +39,7 @@ public class PlayerController : MonoBehaviour
         playerIconText = playerIcon.transform.Find("Current %").GetComponent<TextMeshProUGUI>();
         announcementText = GameObject.Find("Canvas/Announcement Text").GetComponent<TextMeshProUGUI>();
         setPlayerColor(currentPlayer);
+        jumpCooldownTimer = 0.5f;
     }
 
     public void OnMovementPerformed(InputAction.CallbackContext value)
@@ -52,7 +59,7 @@ public class PlayerController : MonoBehaviour
         moveVector = value.ReadValue<Vector2>();
     }
 
-    public void OnSprintPerformed(InputAction.CallbackContext value)
+/*     public void OnSprintPerformed(InputAction.CallbackContext value)
     {
         speedMultiplier = 1.5f;
     }
@@ -60,13 +67,13 @@ public class PlayerController : MonoBehaviour
     public void OnSprintCanceled(InputAction.CallbackContext value)
     {
         speedMultiplier = 1f;
-    }
+    } */
 
     public void OnJumpPerformed(InputAction.CallbackContext value)
     {
-        if (isGrounded)
+        if (isGrounded && jumpCooldownTimer == 0f)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); // Apply jump force only when grounded
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             RaycastHit hit;
             if (Physics.Raycast(transform.position, Vector3.down, out hit, groundedRaycastDistance + 0.1f, groundLayer))
             {
@@ -75,12 +82,8 @@ public class PlayerController : MonoBehaviour
                     hit.collider.gameObject.GetComponent<GlassTile>()?.JumpImpact();
                 }
             }
+            jumpCooldownTimer = jumpCooldown;
         }
-    }
-
-    public void OnJumpCanceled(InputAction.CallbackContext value)
-    {
-        // add jump cancel logic here if needed
     }
 
     public void OnHitPerformed(InputAction.CallbackContext value)
@@ -112,27 +115,40 @@ public class PlayerController : MonoBehaviour
             if (hit.collider.tag == "DesertTile")
             {
                 slow = slowMultiplier;
-            } else {
+            }
+            else
+            {
                 slow = 1f;
             }
         }
 
-        Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y) * speedMultiplier * slow;
+        Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y) * speed * slow;
 
+        if (useRigidbodyMovement)
+        {
+            rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
+        }
+        else
+        {
+            transform.Translate(movement * Time.deltaTime, Space.World);
+        }
 
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.15f);
-
-        transform.Translate(movement * speed * Time.deltaTime, Space.World);
-
         transform.rotation = targetRotation;
-        
+
 
         // Check if the player is grounded
         isGrounded = Physics.Raycast(transform.position, Vector3.down, out hit, 0.8f, groundLayer);
+        if (jumpCooldownTimer > 0f)
+        {
+            jumpCooldownTimer -= Time.deltaTime;
+        }
+        else
+        {
+            jumpCooldownTimer = 0f;
+        }
+        Debug.Log(jumpCooldownTimer);
 
-        /*Debug.Log(moveVector);
-        Debug.Log(movement);
-        Debug.Log("Grounded: " + isGrounded);*/
     }
 
     public void updatePercentage(int newPercentage)
