@@ -18,12 +18,13 @@ public class RespawnZone : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             deathRah.Play();
-            if (other.gameObject.GetComponent<NewPlayerController>().GetLives() == 1)
+            if (other.gameObject.GetComponent<PlayerController>().GetLives() == 1)
             {
                 StartCoroutine(PlayerDead(other.gameObject));
                 return;
             }
-            other.gameObject.GetComponent<NewPlayerController>().UpdateLives(-1);
+            other.gameObject.GetComponent<PlayerController>().UpdateLives(-1);
+            other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             other.transform.position = respawnPoint.position;
         }
     }
