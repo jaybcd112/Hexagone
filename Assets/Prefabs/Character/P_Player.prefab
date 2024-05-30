@@ -87,7 +87,6 @@ MonoBehaviour:
   speed: 6
   jumpForce: 5
   groundedRaycastDistance: 0.1
-  slowMultiplier: 0.75
   rotationSpeed: 5
   baseKnockback: 5
   rb: {fileID: 8828178685196049071}
@@ -208,7 +207,19 @@ MonoBehaviour:
     m_ActionId: 5cd18c5c-ecd3-4d50-89ff-62aaedb15fac
     m_ActionName: Player/Join[/DualShock4GamepadHID/select,/Keyboard/enter]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2751681264730622937}
+        m_TargetAssemblyTypeName: NewPlayerController, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_ActionId: 30afd91f-eaf1-46f7-b0c0-92710dfbdd48
     m_ActionName: Player/Pause[/DualShock4GamepadHID/start]
   - m_PersistentCalls:
