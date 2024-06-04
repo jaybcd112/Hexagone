@@ -174,38 +174,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 3
---- !u!114 &2751681264730622937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2980662345076416489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcadb06e2275dc441afbebae50d93314, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useRigidbodyMovement: 0
-  percentage: 0
-  lives: 3
-  speed: 6
-  jumpForce: 5
-  groundedRaycastDistance: 0.1
-  rotationSpeed: 5
-  baseKnockback: 5
-  rb: {fileID: 8828178685196049071}
-  cameraAngle: {fileID: 1409186112349640955, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  skinnedMeshRenderer: {fileID: 908876880051725215}
-  deathYellSFX: {fileID: 0}
-  LightAttack: {fileID: -4797967479213954839}
-  HeavyAttack: {fileID: -1943702401154364600}
-  DeathRah: {fileID: 0}
-  playerIconText: {fileID: 0}
-  healthIcons: []
 --- !u!114 &-2895298024014735597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,7 +281,7 @@ MonoBehaviour:
     m_ActionName: Player/Join[/DualShock4GamepadHID/select,/Keyboard/enter]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2751681264730622937}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: NewPlayerController, Assembly-CSharp
         m_MethodName: OnPause
         m_Mode: 1
@@ -5535,7 +5503,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8737266261381758843}
+  m_GameObject: {fileID: 5019160526643172812}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70642585, y: 0.7064259, z: -0.03102463, w: 0.031024713}
   m_LocalPosition: {x: -0.00078714115, y: 0.000501097, z: -0.0005660764}
