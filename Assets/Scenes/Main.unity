@@ -158,6 +158,7 @@ MonoBehaviour:
   playerUi: []
   playerAnnouncementText: {fileID: 0}
   cameraControls: {fileID: 0}
+  deathRah: {fileID: 0}
 --- !u!65 &10195091
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -733,6 +734,7 @@ MonoBehaviour:
   playerUi: []
   playerAnnouncementText: {fileID: 0}
   cameraControls: {fileID: 0}
+  deathRah: {fileID: 0}
 --- !u!4 &233399890 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5401851563816100647, guid: 0bc3dc70a8e7c444c8dc9afd96ebbd0d, type: 3}
@@ -1862,6 +1864,7 @@ MonoBehaviour:
   playerUi: []
   playerAnnouncementText: {fileID: 0}
   cameraControls: {fileID: 0}
+  deathRah: {fileID: 0}
 --- !u!65 &829685959
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1933,6 +1936,7 @@ MonoBehaviour:
   playerUi: []
   playerAnnouncementText: {fileID: 0}
   cameraControls: {fileID: 0}
+  deathRah: {fileID: 0}
 --- !u!65 &934947245
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2117,6 +2121,11 @@ CanvasRenderer:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6869093527502516858, guid: b505b4c6e55f1794cbfd133eb6188772, type: 3}
   m_PrefabInstance: {fileID: 653454147}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1244558901 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8852258585448755988, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
+  m_PrefabInstance: {fileID: 3545441230879589037}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1270111419
 GameObject:
@@ -2677,6 +2686,7 @@ MonoBehaviour:
   playerUi: []
   playerAnnouncementText: {fileID: 0}
   cameraControls: {fileID: 0}
+  deathRah: {fileID: 0}
 --- !u!65 &1353467755
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3042,8 +3052,8 @@ RectTransform:
   - {fileID: 6535034576700640227}
   - {fileID: 1732930205996051920}
   - {fileID: 1732930206833010975}
-  - {fileID: 17740716}
   - {fileID: 1732930204946354589}
+  - {fileID: 17740716}
   - {fileID: 299406884}
   - {fileID: 1822797809}
   m_Father: {fileID: 653854982}
@@ -3100,6 +3110,7 @@ MonoBehaviour:
   playerUi: []
   playerAnnouncementText: {fileID: 0}
   cameraControls: {fileID: 0}
+  deathRah: {fileID: 0}
 --- !u!65 &1720325722
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3643,7 +3654,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
   m_PlayerLeftEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3697,7 +3708,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followCam: {fileID: 547892232}
-  playerUi: []
+  playerUi:
+  - {fileID: 2183617974025969953}
+  - {fileID: 6696929061642077970}
+  - {fileID: 6696929061405033437}
+  - {fileID: 6696929060607867743}
 --- !u!1 &2137889861
 GameObject:
   m_ObjectHideFlags: 0
@@ -4585,13 +4600,112 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8852258585448755988, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3545441230879589042}
   m_SourcePrefab: {fileID: 100100000, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
 --- !u!4 &3545441230879589038 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1409186112349640955, guid: 0a09b4993afac9a4ca696de19ca6d3ba, type: 3}
   m_PrefabInstance: {fileID: 3545441230879589037}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &3545441230879589042
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244558901}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!222 &4741195019200686840
 CanvasRenderer:
   m_ObjectHideFlags: 0

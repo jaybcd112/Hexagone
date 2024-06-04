@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private bool canAttack;
     private float speedMultiplier = 1f;
     private ParticleSystem ps;
+    private PauseManager pm;
 
     [HideInInspector]
     public TextMeshProUGUI playerIconText;
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
         playerIconText = playerIcon.transform.Find("Current %").GetComponent<TextMeshProUGUI>();
         ps = GetComponent<ParticleSystem>();
         SetPlayerColor(currentPlayer);
+        pm = GameObject.Find("PauseManager").GetComponent<PauseManager>();
     }
 
     public void OnMovementPerformed(InputAction.CallbackContext value)
@@ -259,8 +261,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void Pause()
+    /*private void OnDestroy()
     {
-        GameObject.Find("Canvas/PauseMenu").SetActive(true);
+        Instantiate(deathYellSFX, transform.position, transform.rotation);
+    }*/
+
+    public void OnPause()
+    {
+        pm.Pause();
     }
 }

@@ -202,28 +202,6 @@
                 },
                 {
                     "name": "",
-                    "id": "f46c4341-f248-4e45-a67d-689be81eed63",
-                    "path": "<Gamepad>/select",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Join",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4d0627dd-2c25-4010-b89e-d4081ee59c15",
-                    "path": "<Keyboard>/enter",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Join",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "199b365c-0aee-4506-93b2-725e313d876e",
                     "path": "<Gamepad>/start",
                     "interactions": "",
