@@ -75,16 +75,16 @@ public class PlayerManager : MonoBehaviour
         switch (playerName)
         {
             case "Player1":
-                currentPlayer.GetComponent<NewPlayerController>().healthIcons = playerUi[0].GetComponentsInChildren<Image>();
+                currentPlayer.GetComponent<PlayerController>().healthIcons = playerUi[0].GetComponentsInChildren<Image>();
                 break;
             case "Player2":
-                currentPlayer.GetComponent<NewPlayerController>().healthIcons = playerUi[1].GetComponentsInChildren<Image>();
+                currentPlayer.GetComponent<PlayerController>().healthIcons = playerUi[1].GetComponentsInChildren<Image>();
                 break;
             case "Player3":
-                currentPlayer.GetComponent<NewPlayerController>().healthIcons = playerUi[2].GetComponentsInChildren<Image>();
+                currentPlayer.GetComponent<PlayerController>().healthIcons = playerUi[2].GetComponentsInChildren<Image>();
                 break;
             case "Player4":
-                currentPlayer.GetComponent<NewPlayerController>().healthIcons = playerUi[3].GetComponentsInChildren<Image>();
+                currentPlayer.GetComponent<PlayerController>().healthIcons = playerUi[3].GetComponentsInChildren<Image>();
                 break;
             default:
                 Debug.LogError("Invalid player number!");

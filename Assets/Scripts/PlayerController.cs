@@ -5,18 +5,16 @@ using TMPro;
 using System.Collections;
 using Unity.VisualScripting;
 
-public class NewPlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [Header("Player Settings")]
     public bool useRigidbodyMovement = false;
     public int percentage = 0;
     public int lives = 3;
-    public float speed = 1f;
-    public float jumpForce = 10f;
+    public float speed = 4f;
+    public float jumpForce = 4f;
     public float groundedRaycastDistance = 0.1f;
-
     public float rotationSpeed = 1f;
-    public float baseKnockback = 5f;
 
     [Header("Components")]
     public Rigidbody rb;
@@ -24,6 +22,7 @@ public class NewPlayerController : MonoBehaviour
     public LayerMask groundLayer;
     public SkinnedMeshRenderer skinnedMeshRenderer;
     public GameObject deathYellSFX;
+    public Collider hitBox;
 
     [Header("Audio Sources")]
     public AudioSource LightAttack;
@@ -37,7 +36,6 @@ public class NewPlayerController : MonoBehaviour
     private Quaternion targetRotation;
     private bool canAttack;
     private float speedMultiplier = 1f;
-    private Weapon weapon;
     private ParticleSystem ps;
     private PauseManager pm;
 
@@ -48,7 +46,6 @@ public class NewPlayerController : MonoBehaviour
 
     public void Awake()
     {
-        weapon = GetComponentInChildren<Weapon>();
         canAttack = true;
         animator = GetComponent<Animator>();
         string playerName = gameObject.name;
@@ -92,18 +89,6 @@ public class NewPlayerController : MonoBehaviour
         }
     }
 
-    /*
-    public void OnSprintPerformed(InputAction.CallbackContext value)
-    {
-        speedMultiplier = 1.5f;
-    }
-
-    public void OnSprintCanceled(InputAction.CallbackContext value)
-    {
-        speedMultiplier = 1f;
-    }
-    */
-
     public void OnJumpPerformed(InputAction.CallbackContext value)
     {
         if (isGrounded)
@@ -127,7 +112,7 @@ public class NewPlayerController : MonoBehaviour
     {
         if (canAttack)
         {
-            StartCoroutine(AttackCooldown(1.26f));
+            StartCoroutine(AttackCooldown(1f));
             animator.Play("LightAttack");
             LightAttack.Play();
         }
@@ -137,7 +122,7 @@ public class NewPlayerController : MonoBehaviour
     {
         if (canAttack)
         {
-            StartCoroutine(AttackCooldown(1.46f));
+            StartCoroutine(AttackCooldown(1.2f));
             animator.Play("HeavyAttack");
             HeavyAttack.Play();
         }
@@ -146,10 +131,14 @@ public class NewPlayerController : MonoBehaviour
     private IEnumerator AttackCooldown(float clipLength)
     {
         canAttack = false;
-        weapon.hammerCollider.enabled = true;
+
+        yield return new WaitForSeconds(.2f);
+
+        hitBox.enabled = true;
+
         yield return new WaitForSeconds(clipLength);
 
-        weapon.hammerCollider.enabled = false;
+        hitBox.enabled = false;
         canAttack = true;
 
     }
@@ -167,19 +156,27 @@ public class NewPlayerController : MonoBehaviour
     private void FixedUpdate()
     {
 
-        Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y) * speed * speedMultiplier;
+        
 
-        if (useRigidbodyMovement)
+        if (useRigidbodyMovement && rb.velocity.magnitude <= 5f)
         {
-            rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
+            Debug.Log("Velocity" + rb.velocity);
+            Debug.Log("Magnitude" + rb.velocity.magnitude);
+            Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y) * speed * .1f * speedMultiplier;
+            Vector3 velocityChange = new Vector3(movement.x, 0f, movement.z);
+
+            rb.velocity += velocityChange;
         }
+
+        
         else
         {
+            Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y) * speed * speedMultiplier;
             transform.Translate(movement * Time.deltaTime, Space.World);
         }
+        
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.15f);
-        transform.rotation = targetRotation;
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed);
 
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, groundedRaycastDistance + 0.1f, groundLayer))
