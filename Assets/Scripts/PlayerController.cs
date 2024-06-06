@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Player Settings")]
     public bool useRigidbodyMovement = false;
-    public int percentage = 0;
     public int lives = 3;
     public float speed = 4f;
     public float jumpForce = 4f;
@@ -35,27 +34,24 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private Animator animator;
     private Quaternion targetRotation;
+    private float percentage = 0f;
     private bool canAttack;
     private float speedMultiplier = 1f;
     private ParticleSystem ps;
     private PauseManager pm;
-
-    [HideInInspector]
-    public TextMeshProUGUI playerIconText;
-    public Image[] healthIcons;
+    private UIManager um;
+    private string playerName;
 
 
     public void Awake()
     {
         canAttack = true;
         animator = GetComponent<Animator>();
-        string playerName = gameObject.name;
-        string currentPlayer = "Player" + playerName.Substring(6);
-        GameObject playerIcon = GameObject.Find("Canvas/" + currentPlayer + "Icon");
-        playerIconText = playerIcon.transform.Find("Current %").GetComponent<TextMeshProUGUI>();
+        playerName = gameObject.name;
         ps = GetComponent<ParticleSystem>();
-        SetPlayerColor(currentPlayer);
+        SetPlayerColor(playerName);
         pm = GameObject.Find("PauseManager").GetComponent<PauseManager>();
+        um = GameObject.Find("UIManager").GetComponent<UIManager>();
     }
 
     public void OnMovementPerformed(InputAction.CallbackContext value)
@@ -96,8 +92,6 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false;
             rb.AddForce(Vector3.up * jumpForce * 100, ForceMode.Impulse);
-
-            RaycastHit hit;
             hasJumped = true;
         }
     }
@@ -126,13 +120,9 @@ public class PlayerController : MonoBehaviour
     private IEnumerator AttackCooldown(float clipLength)
     {
         canAttack = false;
-
         yield return new WaitForSeconds(.2f);
-
         hitBox.enabled = true;
-
         yield return new WaitForSeconds(clipLength);
-
         hitBox.enabled = false;
         canAttack = true;
 
@@ -143,9 +133,7 @@ public class PlayerController : MonoBehaviour
         Vector3 localMoveVector = transform.InverseTransformDirection(new Vector3(moveVector.x, 0f, moveVector.y));
         animator.SetFloat("x", localMoveVector.x);
         animator.SetFloat("y", localMoveVector.z);
-
         animator.SetBool("isGrounded", isGrounded);
-        //Debug.Log(isGrounded);
     }
 
     private void FixedUpdate()
@@ -154,7 +142,6 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y) * speed * 0.1f * speedMultiplier;
         Vector3 velocityChange = new Vector3(movement.x, 0f, movement.z);
-
         rb.velocity += velocityChange;
     }
     else
@@ -177,16 +164,21 @@ public class PlayerController : MonoBehaviour
 }
 
 
-    public void UpdatePercentage(int newPercentage)
+    public void UpdatePercentage(float newPercentage)
     {
         percentage += newPercentage;
-        playerIconText.text = percentage.ToString() + "%";
+        um.UpdatePercentage(playerName, percentage);
     }
 
     public void ResetPercentage()
     {
-        percentage = 0;
-        playerIconText.text = percentage.ToString() + "%";
+        percentage = 0f;
+        um.ResetPercentage(playerName);
+    }
+
+    public float GetPercentage()
+    {
+        return percentage;
     }
 
     public int GetLives()
@@ -197,11 +189,8 @@ public class PlayerController : MonoBehaviour
     public void UpdateLives(int newLives)
     {
         lives += newLives;
-
-        healthIcons[(lives + 1)].enabled = false;
-
+        um.DisableHealthIcon(playerName, lives);
         ResetPercentage();
-
     }
 
     public void SetPlayerColor(string currentPlayer)
@@ -209,20 +198,20 @@ public class PlayerController : MonoBehaviour
         var main = ps.main;
         switch (currentPlayer)
         {
+            case "Player0":
+                skinnedMeshRenderer.material = Resources.Load<Material>("Materials/Player0");
+                main.startColor = new Color(1f, 0f, 0f, 1f);
+                break;
             case "Player1":
                 skinnedMeshRenderer.material = Resources.Load<Material>("Materials/Player1");
-                main.startColor = new Color(1f, 0f, 0f, 1f);
+                main.startColor = new Color(1f, 0f, 1f, 1f);
                 break;
             case "Player2":
                 skinnedMeshRenderer.material = Resources.Load<Material>("Materials/Player2");
-                main.startColor = new Color(1f, 0f, 1f, 1f);
+                main.startColor = new Color(0f, 1f, 1f, 1f);
                 break;
             case "Player3":
                 skinnedMeshRenderer.material = Resources.Load<Material>("Materials/Player3");
-                main.startColor = new Color(0f, 1f, 1f, 1f);
-                break;
-            case "Player4":
-                skinnedMeshRenderer.material = Resources.Load<Material>("Materials/Player4");
                 main.startColor = new Color(0f, 1f, 0f, 1f);
                 break;
             default:

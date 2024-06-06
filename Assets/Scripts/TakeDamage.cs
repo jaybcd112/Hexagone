@@ -30,14 +30,14 @@ public class TakeDamage : MonoBehaviour
 
         Debug.DrawRay(transform.position, direction * 5f, Color.green, 1f);
 
-        float power = basePower + GetComponentInParent<PlayerController>().percentage * 10;
+        float power = basePower + GetComponentInParent<PlayerController>().GetPercentage() * 10;
 
         Rigidbody rb = GetComponentInParent<Rigidbody>();
 
         // Apply force in the opposite direction of the hitting player's facing direction
         rb.AddForce(direction * power, ForceMode.Impulse);
 
-        GetComponentInParent<PlayerController>().UpdatePercentage(10);
+        GetComponentInParent<PlayerController>().UpdatePercentage(10f);
 
         yield return new WaitForSeconds(lockoutDuration);
 
