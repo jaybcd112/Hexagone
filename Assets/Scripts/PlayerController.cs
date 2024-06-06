@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     public SkinnedMeshRenderer skinnedMeshRenderer;
     public GameObject deathYellSFX;
     public Collider hitBox;
+    public ParticleSystem stunParticle;
+    public TakeDamage takeDamage;
 
     [Header("Audio Sources")]
     public AudioSource LightAttack;
@@ -32,7 +34,6 @@ public class PlayerController : MonoBehaviour
     //private variables
     private Vector2 moveVector = Vector2.zero;
     private bool isGrounded;
-    private Animator animator;
     private Quaternion targetRotation;
     private float percentage = 0f;
     private bool canAttack;
@@ -56,39 +57,43 @@ public class PlayerController : MonoBehaviour
 
     public void OnMovementPerformed(InputAction.CallbackContext value)
     {
-        moveVector = value.ReadValue<Vector2>();
-
+        if (!stunned)
+        {
+            moveVector = value.ReadValue<Vector2>();
+        }
     }
 
     public void OnLookPerformed(InputAction.CallbackContext value)
     {
-
-        Vector2 temp = value.ReadValue<Vector2>();
-
-        if (temp.magnitude < 0.1f)
+        if (!stunned)
         {
-            temp = Vector2.zero;
-        }
+            Vector2 temp = value.ReadValue<Vector2>();
 
-        if (temp != Vector2.zero)
-        {
-            float angle = Mathf.Atan2(temp.x, temp.y) * Mathf.Rad2Deg;
+            if (temp.magnitude < 0.1f)
+            {
+                temp = Vector2.zero;
+            }
 
-            float targetYRotation = cameraAngle.eulerAngles.y + angle;
+            if (temp != Vector2.zero)
+            {
+                float angle = Mathf.Atan2(temp.x, temp.y) * Mathf.Rad2Deg;
 
-            targetYRotation %= 360;
-            if (targetYRotation < 0)
-                targetYRotation += 360;
+                float targetYRotation = cameraAngle.eulerAngles.y + angle;
 
-            targetRotation = Quaternion.Euler(0f, targetYRotation, 0f);
+                targetYRotation %= 360;
+                if (targetYRotation < 0)
+                    targetYRotation += 360;
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                targetRotation = Quaternion.Euler(0f, targetYRotation, 0f);
+
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            }
         }
     }
 
     public void OnJumpPerformed(InputAction.CallbackContext value)
     {
-        if (isGrounded)
+        if (isGrounded && !stunned)
         {
             isGrounded = false;
             rb.AddForce(Vector3.up * jumpForce * 100, ForceMode.Impulse);
@@ -150,7 +155,25 @@ public class PlayerController : MonoBehaviour
         transform.Translate(movement * Time.deltaTime, Space.World);
     }
 
-    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed);
+        if (useRigidbodyMovement && rb.velocity.magnitude <= 5f)
+        {
+            Debug.Log("Velocity" + rb.velocity);
+            Debug.Log("Magnitude" + rb.velocity.magnitude);
+            Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y) * speed * .1f * speedMultiplier;
+            Vector3 velocityChange = new Vector3(movement.x, 0f, movement.z);
+
+            rb.velocity += velocityChange;
+        }
+
+        
+        else
+        {
+            Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y) * speed * speedMultiplier;
+            transform.Translate(movement * Time.deltaTime, Space.World);
+        }
+        
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed);
 
     RaycastHit hit;
     if (Physics.Raycast(transform.position, Vector3.down, out hit, groundedRaycastDistance + 0.1f, groundLayer))
@@ -263,11 +286,6 @@ public class PlayerController : MonoBehaviour
             speedMultiplier = 1f;
         }
     }
-
-    /*private void OnDestroy()
-    {
-        Instantiate(deathYellSFX, transform.position, transform.rotation);
-    }*/
 
     public void OnPause()
     {

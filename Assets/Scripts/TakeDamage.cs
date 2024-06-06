@@ -7,6 +7,7 @@ public class TakeDamage : MonoBehaviour
     public float basePower = 5f;
     public float radius = 15.0f;
     public float lockoutDuration = 1f;
+    public float baseStunDuration;
 
     private bool isLockedOut = false;
 
@@ -15,33 +16,61 @@ public class TakeDamage : MonoBehaviour
         if (!isLockedOut && other.gameObject.layer == LayerMask.NameToLayer("Hitbox"))
         {
             
-            StartCoroutine(ApplyDamage(other));
+            ApplyDamage(other);
         }
     }
 
-    IEnumerator ApplyDamage(Collider other)
+    private void ApplyDamage(Collider other)
     {
 
         isLockedOut = true;
 
+        //direction of the hitting player
         Vector3 direction = other.transform.root.forward;
         direction.y = 0f;
         direction.Normalize();
 
-        Debug.DrawRay(transform.position, direction * 5f, Color.green, 1f);
-
-        float power = basePower + GetComponentInParent<PlayerController>().GetPercentage() * 10;
-
+        PlayerController playerControler = GetComponentInParent<PlayerController>(gameObject);
         Rigidbody rb = GetComponentInParent<Rigidbody>();
 
-        // Apply force in the opposite direction of the hitting player's facing direction
+        float power = basePower + playerControler.GetPercentage() * 10;
+
         rb.AddForce(direction * power, ForceMode.Impulse);
 
-        GetComponentInParent<PlayerController>().UpdatePercentage(10f);
+        playerControler.UpdatePercentage(10f);
 
-        yield return new WaitForSeconds(lockoutDuration);
+        Vector3 targetDirection = other.transform.position - transform.parent.position;
+        targetDirection.y = 0f;
+        targetDirection.Normalize();
+
+        StartCoroutine(Stunned());
+        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+        float rotationSpeed = 20f;
+        while (Quaternion.Angle(transform.parent.rotation, targetRotation) > 0.1f)
+        {
+            transform.parent.rotation = Quaternion.Slerp(transform.parent.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
+    }
+
+    IEnumerator Stunned()
+    {
+        PlayerController playerControler = GetComponentInParent<PlayerController>(gameObject);
+        float stunDuration = baseStunDuration + (playerControler.percentage * .02f);
+
+        ParticleSystem.MainModule mainModule = playerControler.stunParticle.main;
+        mainModule.startLifetime = baseStunDuration + (stunDuration);
+        playerControler.stunParticle.Play();
+
+        playerControler.animator.SetBool("Stunned", true);
+        playerControler.stunned = true;
+
+        yield return new WaitForSeconds(stunDuration);
 
         isLockedOut = false;
+        playerControler.stunned = false;
+        playerControler.animator.SetBool("Stunned", false);
     }
+
+
 
 }
