@@ -37,10 +37,12 @@ public class PlayerController : MonoBehaviour
     private Quaternion targetRotation;
     private float percentage = 0f;
     private bool canAttack;
+    private bool stunned;
     private float speedMultiplier = 1f;
     private ParticleSystem ps;
     private PauseManager pm;
     private UIManager um;
+    public Animator animator;
     private string playerName;
 
 
@@ -142,18 +144,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate()
-{
-    if (useRigidbodyMovement && rb.velocity.magnitude <= 5f)
     {
-        Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y) * speed * 0.1f * speedMultiplier;
-        Vector3 velocityChange = new Vector3(movement.x, 0f, movement.z);
-        rb.velocity += velocityChange;
-    }
-    else
-    {
-        Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y) * speed * speedMultiplier;
-        transform.Translate(movement * Time.deltaTime, Space.World);
-    }
 
         if (useRigidbodyMovement && rb.velocity.magnitude <= 5f)
         {
@@ -175,16 +166,16 @@ public class PlayerController : MonoBehaviour
 
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed);
 
-    RaycastHit hit;
-    if (Physics.Raycast(transform.position, Vector3.down, out hit, groundedRaycastDistance + 0.1f, groundLayer))
-    {
-        isGrounded = true;
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, groundedRaycastDistance + 0.1f, groundLayer))
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
     }
-    else
-    {
-        isGrounded = false;
-    }
-}
 
 
     public void UpdatePercentage(float newPercentage)
@@ -242,24 +233,11 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
-    public void OnCollisionEnter(Collision collision) {
-
-        if (collision.gameObject.tag == "Player")
-        {
-            return;
-        } 
-        else if (collision.gameObject.tag == "GlassTile") 
-        {
-            if (hasJumped) 
-            {
-                collision.gameObject.GetComponent<GlassTile>().JumpImpact();
-                hasJumped = false;
-            }
-        } 
-        else 
-        {
-            hasJumped = false;
-        }
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "GlassTile" & hasJumped) 
+            collision.gameObject.GetComponent<GlassTile>().JumpImpact();
+        hasJumped = false;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -290,5 +268,14 @@ public class PlayerController : MonoBehaviour
     public void OnPause()
     {
         pm.Pause();
+    }
+
+    public void SetStunned(bool stunned)
+    {
+        this.stunned = stunned;
+    }
+    public bool GetStunned()
+    {
+        return stunned;
     }
 }

@@ -55,19 +55,19 @@ public class TakeDamage : MonoBehaviour
     IEnumerator Stunned()
     {
         PlayerController playerControler = GetComponentInParent<PlayerController>(gameObject);
-        float stunDuration = baseStunDuration + (playerControler.percentage * .02f);
+        float stunDuration = baseStunDuration + (playerControler.GetPercentage() * .02f);
 
         ParticleSystem.MainModule mainModule = playerControler.stunParticle.main;
         mainModule.startLifetime = baseStunDuration + (stunDuration);
         playerControler.stunParticle.Play();
 
         playerControler.animator.SetBool("Stunned", true);
-        playerControler.stunned = true;
+        playerControler.SetStunned(true);
 
         yield return new WaitForSeconds(stunDuration);
 
         isLockedOut = false;
-        playerControler.stunned = false;
+        playerControler.SetStunned(false);
         playerControler.animator.SetBool("Stunned", false);
     }
 

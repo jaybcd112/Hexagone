@@ -22,15 +22,17 @@ public class RespawnZone : MonoBehaviour
             PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
             deathRah.Play();
             playerController.UpdateLives(-1);
-            if (other.gameObject.GetComponent<PlayerController>().GetLives() <= 0)
+            if (playerController.GetLives() <= 0)
             {
                 StartCoroutine(PlayerDead(other.gameObject));
                 return;
             }
-            playerController.stunned = false;
+
+            playerController.SetStunned(false);
             playerController.stunParticle.Stop();
             ParticleSystem.MainModule mainModule = playerController.stunParticle.main;
             mainModule.startLifetime = 1f;
+
             other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             other.transform.position = respawnPoint.position;
         }
@@ -71,13 +73,7 @@ public class RespawnZone : MonoBehaviour
 
     private void DisableAnnouncementText()
     {
-
         playerAnnouncementText.text = "";
-
     }
-
-
-
-
 
 }
