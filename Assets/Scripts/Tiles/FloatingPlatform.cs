@@ -6,6 +6,7 @@ public class FloatingPlatform : MonoBehaviour
 {
     public float bounceForce = 1000f;
     public Vector3 bounceDirection = new Vector3(1, -1, 0); // adjust for each platform
+    public AudioSource boing;
 
     void Start()
     {
@@ -15,6 +16,8 @@ public class FloatingPlatform : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         Rigidbody rb = collision.collider.GetComponent<Rigidbody>();
+        boing.pitch = Random.Range(0.80f, 1.20f);
+        boing.Play();
 
         if (rb != null)
         {
