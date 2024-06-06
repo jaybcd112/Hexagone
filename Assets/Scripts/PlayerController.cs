@@ -255,6 +255,11 @@ public class PlayerController : MonoBehaviour
         {
             speedMultiplier = 0.5f;
         }
+        if (other.CompareTag("SwampTile"))
+        {
+            jumpForce = 0f;
+            speedMultiplier = 0.8f;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -263,7 +268,11 @@ public class PlayerController : MonoBehaviour
         {
             speedMultiplier = 1f;
         }
-
+        if (other.CompareTag("SwampTile"))
+        {
+            jumpForce = 5f;
+            speedMultiplier = 1f;
+        }
     }
 
     /*private void OnDestroy()

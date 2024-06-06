@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class FloatingPlatform : MonoBehaviour
 {
-    public float bounceForce = 10f;
+    public float bounceForce = 1000f;
     public Vector3 bounceDirection = new Vector3(1, -1, 0); // adjust for each platform
 
     void Start()
     {
         // Normalize the bounce direction to ensure consistent force application
-        bounceDirection = bounceDirection.normalized;
     }
 
     void OnCollisionEnter(Collision collision)
