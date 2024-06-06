@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public int lives = 3;
     public float speed = 4f;
     public float jumpForce = 4f;
+    public bool hasJumped = false;
     public float groundedRaycastDistance = 0.1f;
     public float rotationSpeed = 1f;
 
@@ -97,13 +98,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce * 100, ForceMode.Impulse);
 
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, Vector3.down, out hit, groundedRaycastDistance, groundLayer))
-            {
-                if (hit.collider.tag == "GlassTile")
-                {
-                    hit.collider.gameObject.GetComponent<GlassTile>()?.JumpImpact();
-                }
-            }
+            hasJumped = true;
         }
     }
 
@@ -154,40 +149,32 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate()
+{
+    if (useRigidbodyMovement && rb.velocity.magnitude <= 5f)
     {
+        Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y) * speed * 0.1f * speedMultiplier;
+        Vector3 velocityChange = new Vector3(movement.x, 0f, movement.z);
 
-        
-
-        if (useRigidbodyMovement && rb.velocity.magnitude <= 5f)
-        {
-            Debug.Log("Velocity" + rb.velocity);
-            Debug.Log("Magnitude" + rb.velocity.magnitude);
-            Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y) * speed * .1f * speedMultiplier;
-            Vector3 velocityChange = new Vector3(movement.x, 0f, movement.z);
-
-            rb.velocity += velocityChange;
-        }
-
-        
-        else
-        {
-            Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y) * speed * speedMultiplier;
-            transform.Translate(movement * Time.deltaTime, Space.World);
-        }
-        
-
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed);
-
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, groundedRaycastDistance + 0.1f, groundLayer))
-        {
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
-        }
+        rb.velocity += velocityChange;
     }
+    else
+    {
+        Vector3 movement = new Vector3(moveVector.x, 0f, moveVector.y) * speed * speedMultiplier;
+        transform.Translate(movement * Time.deltaTime, Space.World);
+    }
+
+    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed);
+
+    RaycastHit hit;
+    if (Physics.Raycast(transform.position, Vector3.down, out hit, groundedRaycastDistance + 0.1f, groundLayer))
+    {
+        isGrounded = true;
+    }
+    else
+    {
+        isGrounded = false;
+    }
+}
 
 
     public void UpdatePercentage(int newPercentage)
@@ -243,7 +230,25 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
+    public void OnCollisionEnter(Collision collision) {
 
+        if (collision.gameObject.tag == "Player")
+        {
+            return;
+        } 
+        else if (collision.gameObject.tag == "GlassTile") 
+        {
+            if (hasJumped) 
+            {
+                collision.gameObject.GetComponent<GlassTile>().JumpImpact();
+                hasJumped = false;
+            }
+        } 
+        else 
+        {
+            hasJumped = false;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("DesertTile"))
