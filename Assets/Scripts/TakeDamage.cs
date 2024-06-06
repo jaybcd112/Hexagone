@@ -33,12 +33,11 @@ public class TakeDamage : MonoBehaviour
         PlayerController playerControler = GetComponentInParent<PlayerController>(gameObject);
         Rigidbody rb = GetComponentInParent<Rigidbody>();
 
+        float power = basePower + playerControler.GetPercentage() * 10;
 
-
-        float power = basePower + playerControler.percentage * 10;
         rb.AddForce(direction * power, ForceMode.Impulse);
 
-        playerControler.UpdatePercentage(10);
+        playerControler.UpdatePercentage(10f);
 
         Vector3 targetDirection = other.transform.position - transform.parent.position;
         targetDirection.y = 0f;
