@@ -17,13 +17,20 @@ public class RespawnZone : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
             deathRah.Play();
-            if (other.gameObject.GetComponent<PlayerController>().GetLives() == 1)
+            if (playerController.GetLives() == 1)
             {
                 StartCoroutine(PlayerDead(other.gameObject));
                 return;
             }
-            other.gameObject.GetComponent<PlayerController>().UpdateLives(-1);
+            playerController.UpdateLives(-1);
+
+            playerController.stunned = false;
+            playerController.stunParticle.Stop();
+            ParticleSystem.MainModule mainModule = playerController.stunParticle.main;
+            mainModule.startLifetime = 1f;
+
             other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             other.transform.position = respawnPoint.position;
         }
