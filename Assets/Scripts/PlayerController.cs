@@ -237,6 +237,15 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "GlassTile" & hasJumped) 
             collision.gameObject.GetComponent<GlassTile>().JumpImpact();
+        if (collision.gameObject.tag == "SwampTile") {
+            jumpForce = 0f;
+            speedMultiplier = 0.8f;
+        }
+        else if (collision.gameObject.tag == "DesertTile") {
+        } else {
+            jumpForce = 5f;
+            speedMultiplier = 1f;
+        }
         hasJumped = false;
     }
     private void OnTriggerEnter(Collider other)
@@ -245,22 +254,12 @@ public class PlayerController : MonoBehaviour
         {
             speedMultiplier = 0.5f;
         }
-        if (other.CompareTag("SwampTile"))
-        {
-            jumpForce = 0f;
-            speedMultiplier = 0.8f;
-        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("DesertTile"))
         {
-            speedMultiplier = 1f;
-        }
-        if (other.CompareTag("SwampTile"))
-        {
-            jumpForce = 5f;
             speedMultiplier = 1f;
         }
     }
