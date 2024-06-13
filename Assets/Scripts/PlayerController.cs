@@ -218,7 +218,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case "Player1":
                 skinnedMeshRenderer.material = Resources.Load<Material>("Materials/Player1");
-                main.startColor = new Color(1f, 0f, 1f, 1f);
+                main.startColor = new Color(1f, 1f, 0f, 1f);
                 break;
             case "Player2":
                 skinnedMeshRenderer.material = Resources.Load<Material>("Materials/Player2");
