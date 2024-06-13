@@ -56,6 +56,7 @@ public class PlayerManager : MonoBehaviour
         Debug.Log(pi.gameObject.name);
         um.ToggleUIElement(pi.gameObject.name, true);
     }
+    
     public List<PlayerConfiguration> GetPlayerConfigs()
     {
         return playerConfigs;
@@ -68,6 +69,11 @@ public class PlayerManager : MonoBehaviour
         {
             PlayerInputManager.instance.onPlayerJoined -= HandlePlayerJoined;
         }
+    }
+
+    public int GetPlayerCount()
+    {
+        return playerCount;
     }
 
 }
