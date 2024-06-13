@@ -1,10 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public String mainMenuSceneName;
     private bool isPaused;
     void Start()
     {
@@ -25,5 +28,10 @@ public class PauseManager : MonoBehaviour
             Time.timeScale = 0f;
             isPaused = true;
         }
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 }
