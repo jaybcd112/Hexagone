@@ -30,8 +30,8 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-    public void LoadMainMenu()
+    public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(mainMenuSceneName);
+        SceneManager.LoadScene(sceneName);
     }
 }

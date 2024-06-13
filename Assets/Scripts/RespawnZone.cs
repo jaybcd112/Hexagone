@@ -65,13 +65,13 @@ public class RespawnZone : MonoBehaviour
     private void DisplayAnnouncementText(string currentPlayer)
     {
         int pnum = um.convertPlayerName(currentPlayer);
-        playerAnnouncementText.text = playerNames[pnum] + "Is Out!";
+        playerAnnouncementText.text = playerNames[pnum] + " Is Out!";
     }
 
     private void DisplayGameEndText(string currentPlayer)
     {
         int pnum = um.convertPlayerName(currentPlayer);
-        playerAnnouncementText.text = playerNames[pnum] + "Wins!";
+        playerAnnouncementText.text = playerNames[pnum] + " Wins!";
     }
 
     private void DisableAnnouncementText()
