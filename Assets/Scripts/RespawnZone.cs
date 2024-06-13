@@ -8,7 +8,6 @@ public class RespawnZone : MonoBehaviour
 {
     public float playerAnnouncementTime = 5f;
     public Transform respawnPoint;
-    public GameObject[] playerUi;
     public TextMeshProUGUI playerAnnouncementText;
     public GameObject cameraControls;
     public AudioSource deathRah;
