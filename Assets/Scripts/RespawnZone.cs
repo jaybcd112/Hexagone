@@ -45,7 +45,8 @@ public class RespawnZone : MonoBehaviour
         um.ToggleUIElement(playerName, false);
         DisplayAnnouncementText(playerName);
         yield return new WaitForSeconds(playerAnnouncementTime);
-        Destroy(player);
+        PlayerController pc = player.GetComponent<PlayerController>();
+        pc.Freeze();
         DisableAnnouncementText();
     }
 

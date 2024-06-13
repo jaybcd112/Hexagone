@@ -277,4 +277,9 @@ public class PlayerController : MonoBehaviour
     {
         return stunned;
     }
+
+    public void Freeze()
+    {
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+    }
 }
