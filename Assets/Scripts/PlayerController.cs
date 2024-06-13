@@ -218,7 +218,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case "Player1":
                 skinnedMeshRenderer.material = Resources.Load<Material>("Materials/Player1");
-                main.startColor = new Color(1f, 0f, 1f, 1f);
+                main.startColor = new Color(1f, 1f, 0f, 1f);
                 break;
             case "Player2":
                 skinnedMeshRenderer.material = Resources.Load<Material>("Materials/Player2");
@@ -239,12 +239,10 @@ public class PlayerController : MonoBehaviour
             collision.gameObject.GetComponent<GlassTile>().JumpImpact();
         if (collision.gameObject.tag == "SwampTile") {
             jumpForce = 0f;
-            speedMultiplier = 0.8f;
         }
         else if (collision.gameObject.tag == "DesertTile") {
         } else {
             jumpForce = 5f;
-            speedMultiplier = 1f;
         }
         hasJumped = false;
     }
