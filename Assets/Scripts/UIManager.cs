@@ -61,7 +61,7 @@ public class UIManager : MonoBehaviour
         percentageText.text = "0%";
     }
 
-    private int convertPlayerName(string playerName)
+    public int convertPlayerName(string playerName)
     {
         return Int32.Parse(playerName[6..]);
     }

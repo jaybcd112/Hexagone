@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System.Globalization;
+using System;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject[] playerUi;
     public UIManager um;
     private List<PlayerConfiguration> playerConfigs;
+    public List<string> playerNames;
 
     [SerializeField]
     public static PlayerManager Instance { get; private set; }
@@ -30,6 +32,7 @@ public class PlayerManager : MonoBehaviour
             DontDestroyOnLoad(Instance);
             playerConfigs = new List<PlayerConfiguration>();
         }
+        playerNames = new List<string>();
     }
 
     void Start()
@@ -51,12 +54,13 @@ public class PlayerManager : MonoBehaviour
             playerConfigs.Add(new PlayerConfiguration(pi));
             pi.gameObject.name = "Player" + playerCount;
             playerCount++;
+            playerNames.Add(pi.gameObject.name);
         }
         followCam.GetComponent<CameraControl>().AddTarget(pi.gameObject);
         Debug.Log(pi.gameObject.name);
         um.ToggleUIElement(pi.gameObject.name, true);
     }
-    
+
     public List<PlayerConfiguration> GetPlayerConfigs()
     {
         return playerConfigs;
@@ -70,12 +74,21 @@ public class PlayerManager : MonoBehaviour
             PlayerInputManager.instance.onPlayerJoined -= HandlePlayerJoined;
         }
     }
-
+    
     public int GetPlayerCount()
     {
         return playerCount;
     }
 
+    public string GetLastPlayer()
+    {
+        return playerNames[0];
+    }
+
+    public void PlayerKilled(string name)
+    {
+        playerNames.Remove(name);
+    }
 }
 
 public class PlayerConfiguration

@@ -1,0 +1,396 @@
+fileFormatVersion: 2
+guid: 7bebcbc67063f61b8a1388aa495c90cd
+importerOverride:
+  nativeImporterType: 2089858483
+  scriptedImporterType:
+    serializedVersion: 2
+    Hash: b10b55a1aa6a1aa32521bc0cab59632e
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: Player # Wins
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 380
+      width: 458
+      height: 35
+    spriteID: b66407ab48eb12cc9afd09c10efaaa65
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 380}
+    spritePosition: {x: 733, y: 978}
+  - name: Main Menu
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 423
+      width: 325
+      height: 35
+    spriteID: 048f1de608eb5cfa68350353fef26e63
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 423}
+    spritePosition: {x: 1088, y: 65}
+  - name: Play Again
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 470
+      y: 380
+      width: 355
+      height: 35
+    spriteID: b82c417d75757a5568698b2e9644625e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 470, y: 380}
+    spritePosition: {x: 494, y: 65}
+  - name: Main Menu Button
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 132
+      width: 476
+      height: 116
+    spriteID: cd2c7549ee2252bfaa79f0dde658dda0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3, y: 131}
+    spritePosition: {x: 1012, y: 25}
+  - name: Main Menu Button Highlighted
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 488
+      y: 132
+      width: 476
+      height: 116
+    spriteID: bc7e6b021638652f688e54355b1e555b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 487, y: 131}
+    spritePosition: {x: 1012, y: 25}
+  - name: Play Again Button
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 256
+      width: 476
+      height: 116
+    spriteID: b60ca4228c201446e91da381523c8720
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3, y: 255}
+    spritePosition: {x: 432, y: 25}
+  - name: Play Again Button Highlighted
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 488
+      y: 256
+      width: 476
+      height: 116
+    spriteID: 99215467bd90e7a1baf9404d52f01a01
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 487, y: 255}
+    spritePosition: {x: 432, y: 25}
+  - name: Polygon 1 copy
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 935
+      height: 120
+    spriteID: 2760e2e4dbee4f4af82cbf452173b3c4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2, y: 3}
+    spritePosition: {x: 493, y: 935}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  platformSettings: []
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
+  padding: 4
+  spriteSizeExpand: 0
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Player # Wins
+    spriteName: Player # Wins
+    isGroup: 0
+    parentIndex: -1
+    spriteID: b66407ab48eb12cc9afd09c10efaaa65
+    layerID: 0
+    mosaicPosition: {x: 4, y: 380}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Main Menu
+    spriteName: Main Menu
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 048f1de608eb5cfa68350353fef26e63
+    layerID: 781750174
+    mosaicPosition: {x: 4, y: 423}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Play Again
+    spriteName: Play Again
+    isGroup: 0
+    parentIndex: -1
+    spriteID: b82c417d75757a5568698b2e9644625e
+    layerID: 484335280
+    mosaicPosition: {x: 470, y: 380}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Main Menu Button
+    spriteName: Main Menu Button
+    isGroup: 0
+    parentIndex: -1
+    spriteID: cd2c7549ee2252bfaa79f0dde658dda0
+    layerID: 518458246
+    mosaicPosition: {x: 4, y: 132}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Main Menu Button Highlighted
+    spriteName: Main Menu Button Highlighted
+    isGroup: 0
+    parentIndex: -1
+    spriteID: bc7e6b021638652f688e54355b1e555b
+    layerID: 1128666599
+    mosaicPosition: {x: 488, y: 132}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Play Again Button
+    spriteName: Play Again Button
+    isGroup: 0
+    parentIndex: -1
+    spriteID: b60ca4228c201446e91da381523c8720
+    layerID: 718193368
+    mosaicPosition: {x: 4, y: 256}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Play Again Button Highlighted
+    spriteName: Play Again Button Highlighted
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 99215467bd90e7a1baf9404d52f01a01
+    layerID: -693948757
+    mosaicPosition: {x: 488, y: 256}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Polygon 1 copy
+    spriteName: Polygon 1 copy
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2760e2e4dbee4f4af82cbf452173b3c4
+    layerID: -722184444
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  spriteSizeExpandChanged: 0
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using UnityEngine.EventSystems;
 using UnityEngine;
 using TMPro;
 
@@ -12,8 +13,12 @@ public class RespawnZone : MonoBehaviour
     public TextMeshProUGUI playerAnnouncementText;
     public GameObject cameraControls;
     public AudioSource deathRah;
-
     public UIManager um;
+    public PlayerManager pm;
+    public GameObject gameEndMenu;
+    public EventSystem eventSystem;
+    private int playersDead = 0;
+    private string[] playerNames = {"Player 1", "Player 2", "Player 3", "Player 4"};
 
     private void OnTriggerEnter(Collider other)
     {
@@ -48,33 +53,36 @@ public class RespawnZone : MonoBehaviour
         PlayerController pc = player.GetComponent<PlayerController>();
         pc.Freeze();
         DisableAnnouncementText();
+        playersDead++;
+        pm.PlayerKilled(playerName);
+        if(lastPlayer())
+        {
+            DisplayGameEndText(pm.GetLastPlayer());
+            gameEndMenu.SetActive(true);
+            eventSystem.SetSelectedGameObject(gameEndMenu.transform.GetChild(1).gameObject);
+        }
     }
 
     private void DisplayAnnouncementText(string currentPlayer)
     {
-        switch (currentPlayer)
-        {
-            case "Player0":
-                playerAnnouncementText.text = "Player 1 Is Out!";
-                break;
-            case "Player1":
-                playerAnnouncementText.text = "Player 2 Is Out!";
-                break;
-            case "Player2":
-                playerAnnouncementText.text = "Player 3 Is Out!";
-                break;
-            case "Player3":
-                playerAnnouncementText.text = "Player 4 Is Out!";
-                break;
-            default:
-                Debug.LogError("Invalid player number!");
-                break;
-        }
+        int pnum = um.convertPlayerName(currentPlayer);
+        playerAnnouncementText.text = playerNames[pnum] + "Is Out!";
+    }
+
+    private void DisplayGameEndText(string currentPlayer)
+    {
+        int pnum = um.convertPlayerName(currentPlayer);
+        playerAnnouncementText.text = playerNames[pnum] + "Wins!";
     }
 
     private void DisableAnnouncementText()
     {
         playerAnnouncementText.text = "";
+    }
+
+    private bool lastPlayer()
+    {
+        return pm.GetPlayerCount() - playersDead <= 1;
     }
 
 }
